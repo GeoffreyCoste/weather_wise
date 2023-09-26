@@ -1,0 +1,152 @@
+{
+    "LocaleLayout": {
+        "default_title": "Weather Wise",
+        "button_login": "Log In",
+        "button_signup": "Sign Up",
+        "header": {
+            "button_open_modal": "Search",
+            "navbar": {
+                "navlinks": {
+                    "home": "Home",
+                    "about": "About",
+                    "terms": "Terms",
+                    "contact": "Contact"
+                }
+            },
+            "collapsible_menu": {
+                "title": "Settings",
+                "label_language": "Language",
+                "label_degrees": "Degrees"
+            }
+        },
+        "side_menu": {
+            "title_connection": "Registration",
+            "title_settings": "Settings",
+            "label_language": "Language",
+            "label_degrees": "Degrees"
+        },
+        "modal": {
+            "title": "Search location",
+            "select_placeholder": "Search...",
+            "default_option_label": "Location searched to be specified"
+        },
+        "cards":{
+            "today_weather": {
+                "title": "<h3><strong>Currently </strong>Weather</h3>",
+                "sunrise": {
+                  "title": "Sunrise: ",
+                  "time": "{formatDate, date, ::h:mm a}"
+                },
+                "sunset": {
+                  "title": "Sunset: ",
+                  "time": "{formatDate, date, ::h:mm a}"
+                }
+            },
+            "hourly_weather": {
+                "title": "<h3><strong>Hourly </strong>Weather</h3>",
+                "now": "Now",
+                "time": "{formatDate, date, ::HH:mm}"
+            },
+            "weekly_weather": {
+                "title": "<h3><strong>Weekly </strong>Weather</h3>",
+                "today": "Today",
+                "tomorrow": "Tomorrow",
+                "date": "{formatDate, date, ::MMMMdd}"
+            },
+            "codes": {
+                "0": "Clear sky",
+                "1": "Mainly clear",
+                "2": "Partly cloudy",
+                "3": "Overcast",
+                "45": "Fog",
+                "48": "Depositing rime fog",
+                "51": "Light drizzle",
+                "53": "Moderate drizzle",
+                "55": "Dense drizzle",
+                "56": "Light freezing drizzle",
+                "57": "Dense freezing drizzle",
+                "61": "Slight rain",
+                "63": "Moderate rain",
+                "65": "Heavy rain",
+                "66": "Light freezing rain",
+                "67": "Heavy freezing rain",
+                "71": "Slight snow fall",
+                "73": "Moderate snow fall",
+                "75": "Heavy snow fall",
+                "77": "Snow grains",
+                "80": "Slight rain showers",
+                "81": "Moderate rain showers",
+                "82": "Violent rain showers",
+                "85": "Slight snow showers",
+                "86": "Heavy snow showers",
+                "95": "Thunderstorm",
+                "96": "Thunderstorm with slight hail",
+                "99": "Thunderstorm with heavy hail"
+            }
+        }
+    },
+    "HomePage": {
+        "title": "<h1>Designed for the true <span>#sun followers</span></h1>",
+        "baseline": "Get accurate, real-time weather forecasts for free. Create an account for more details and services.",
+        "transition_paragraph": "or just find out",
+        "sub_title": "what's your location's weather?",
+        "button_geolocation": "Geolocate me",
+        "button_geolocation_refresh": "Refresh geolocation"
+    },
+    "CityPage": {
+        "title": "<h1>Our forecasts</h1>"
+    },
+    "AboutPage": {
+        "title": "<h1>About us</h1>",
+        "description": {
+            "p1": "At Weather Wise, we are committed to delivering weather information 24 hours a day, 365 days a year, across all platforms.",
+            "p2": "Our forecasts go beyond providing you with information to plan your daily activities. We are dedicated to delivering information so compelling it informs, satisfies and shapes your world. It’s your weather when you really need it."
+        }
+    },
+    "TermsPage": {
+        "title": "<h1>Terms of use</h1>",
+        "description": {
+            "p0": "Your access to and continued use of this Web site and the services offered on this Web site constitute your acceptance of and compliance with the following provisions. Please take some time to familiarize yourself with these provisions. If you do not agree to these terms and conditions, you should immediately discontinue any use of this Web site and/or any offered services. These terms and conditions may change from time to time and it is your responsibility to check for such updates. The last revision data for these terms and conditions is set forth below.",
+            "subtitle_1": "Copyright",
+            "p1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim vulputate placerat. Integer tristique quam libero. Etiam vel facilisis ex, id luctus enim. Suspendisse a enim elementum, volutpat massa quis, hendrerit felis. Curabitur accumsan purus vitae arcu pellentesque pretium. Duis pellentesque nunc mi, id lacinia arcu viverra ut. Ut congue neque ultrices, ullamcorper massa quis, luctus ligula. Integer quis nunc eget ex varius cursus sit amet eget lacus. Nulla sem leo, volutpat a bibendum vulputate, consequat at nisi. Etiam ex nunc, accumsan nec est vel, laoreet tristique dui. Vestibulum ac bibendum mauris. Proin facilisis viverra nibh, et viverra libero imperdiet id. Nam viverra nec velit non bibendum. Aliquam eu arcu diam. Integer pharetra luctus leo, eget facilisis risus dictum vitae. Nulla facilisi.",
+            "subtitle_2": "Terms of use",
+            "p2": {
+                "1": "Aliquam id purus eu ante pretium fermentum. Nam metus ante, varius sit amet felis vitae, lobortis congue mi. Ut tristique aliquam tristique. Nulla condimentum nulla in elementum sagittis. Morbi sit amet commodo purus, vel porttitor nisi. Quisque egestas dui eu elit dictum placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris nec purus sapien. Donec massa justo, condimentum posuere lacinia ac, consectetur id metus. Curabitur viverra mi quis diam sodales vehicula. Etiam consectetur felis nisi. Pellentesque non lacinia nisi.",
+                "2": "Curabitur convallis tortor porta nisl mollis pellentesque id ac quam. Sed venenatis, lorem dignissim accumsan accumsan, nisl mauris dignissim eros, posuere aliquet augue nulla tristique enim. Sed ex diam, iaculis id augue et, tincidunt hendrerit turpis. Suspendisse feugiat sodales mollis. Curabitur eu elit ac lectus venenatis vehicula nec et sapien. Nulla facilisi. Donec laoreet semper tristique. Cras pellentesque pharetra justo, et commodo nulla porttitor in. Integer at eros nisi.",
+                "3": "Duis aliquet eros vestibulum justo porttitor, non rutrum est fermentum. Nam sodales quam vitae ligula imperdiet accumsan. Mauris nisi ipsum, auctor vel ultricies sit amet, pretium sit amet ante. Etiam a nibh dolor. Nunc sagittis varius lacus sit amet scelerisque. Quisque aliquam a justo ut ultrices. Nam blandit neque nibh, quis venenatis lacus accumsan nec. Vestibulum varius turpis tincidunt dictum volutpat. Aliquam in tristique diam.",
+                "4": "Praesent quis suscipit risus, et semper lorem. Maecenas fermentum quis felis non malesuada. Etiam tincidunt sapien et velit finibus viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer rhoncus fermentum lectus vel malesuada. Suspendisse tempus mi vitae est luctus iaculis. Vestibulum ornare fermentum bibendum. Praesent facilisis quis mi et feugiat. Fusce pharetra eros vel molestie vehicula. Nulla fermentum faucibus dolor, ac congue mi egestas sit amet. Donec aliquam, mi vitae venenatis molestie, nisl diam ultricies felis, ac aliquam ligula ante et tortor. Duis neque ex, vestibulum ut dignissim vehicula, elementum ac urna. Etiam at ipsum id lectus feugiat tincidunt."
+            },
+            "subtitle_3": "Disclaimer of warranties and limitation of liability",
+            "p3": {
+                "1": "Sed pharetra quam vel libero bibendum imperdiet. Sed in risus quis odio malesuada scelerisque vel in dolor. Morbi tortor est, hendrerit at tempor vitae, scelerisque quis risus. Nulla quis malesuada felis. Aliquam vitae enim in urna cursus rutrum. Pellentesque vitae viverra elit. Sed convallis ex velit, nec tempus nulla euismod in. Cras efficitur tellus vel neque luctus, sed commodo risus tincidunt. Ut eros orci, imperdiet at ante sit amet, rutrum laoreet magna. Praesent nec sem quam. Praesent ullamcorper ac turpis non viverra. Curabitur maximus id mi lacinia maximus.",
+                "2": "Sed pulvinar lacus quis ipsum vulputate tristique. Phasellus massa risus, dignissim cursus lacinia sit amet, malesuada at mi. Integer consequat sem nec vestibulum volutpat. Etiam consectetur dui eget feugiat pulvinar. Suspendisse scelerisque sagittis malesuada. In blandit lorem sed ligula tempus faucibus. Integer eu neque sit amet velit luctus porta laoreet non odio. Proin maximus nulla non ipsum tincidunt, sodales commodo diam rutrum. Ut imperdiet mi sed ligula suscipit lacinia. Sed feugiat, neque eu porttitor ornare, elit felis commodo ex, at convallis ex lacus vel libero. Nam ac purus est. Etiam consequat diam vel arcu consequat commodo. Nulla non dolor nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus nec ex odio. Ut dapibus massa sit amet mauris convallis facilisis.",
+                "3": "Suspendisse potenti. Mauris at sapien eget erat commodo viverra eget et massa. Pellentesque eu enim sagittis, tempor nibh et, commodo arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla mattis erat vitae dui tincidunt mattis. Integer sodales a dolor eget condimentum. Sed tempor, leo vehicula rhoncus vulputate, turpis arcu lacinia purus, vel suscipit neque leo a metus. Aliquam tellus sem, gravida vel luctus bibendum, elementum vitae arcu. Nulla ac libero ornare ipsum varius maximus nec vitae nibh. Mauris fringilla eros lacus, ut ultricies dolor vestibulum in. Nullam eget accumsan nisl, interdum fringilla orci. Morbi vitae auctor purus. Etiam vel erat vel tortor euismod fringilla at a urna."
+            },
+            "subtitle_4": "Submissions",
+            "p4": "Sed quis enim vel sem viverra commodo ut commodo felis. Mauris dolor arcu, malesuada sodales risus eget, posuere luctus ex. Vestibulum aliquam laoreet sapien ut placerat. Quisque enim ex, maximus id nibh sed, pretium varius nunc. Fusce hendrerit sit amet tortor non pulvinar. Curabitur auctor faucibus sem eget tempor. Aenean dictum molestie massa, vel ultrices nunc sodales vel. In neque nunc, tempor non metus quis, volutpat vestibulum nisl. Praesent scelerisque ipsum nec ante porttitor pharetra. Vivamus mauris purus, commodo ut dapibus vitae, vehicula eu metus.",
+            "subtitle_5": "Confidential information and privacy",
+            "p5": "Proin varius lacinia orci, eget congue sapien iaculis eget. Sed lacinia vestibulum odio id pulvinar. Curabitur id velit tincidunt, faucibus dolor sed, porttitor risus. Duis mollis libero quam, ut rhoncus quam gravida et. Fusce maximus neque id tempor imperdiet. In vehicula ultrices metus, in pretium nulla. Aenean quis pulvinar urna. Suspendisse sodales lorem nec leo interdum tempus. Duis urna nisl, tincidunt et pulvinar ut, tristique at nunc. Morbi euismod, mi at feugiat ullamcorper, leo eros rhoncus dolor, scelerisque commodo diam metus sit amet est. Suspendisse dolor felis, auctor venenatis efficitur et, tristique ac nisl. Vestibulum sodales pharetra lorem vel aliquet. Sed tincidunt magna vitae massa ornare, eget auctor diam ultrices. In dignissim imperdiet massa, in molestie felis eleifend nec. Praesent non convallis enim.",
+            "subtitle_6": "Indemnification",
+            "p6": "In vel lorem ultrices, aliquet eros non, eleifend metus. Phasellus tempor libero vitae turpis pulvinar, a suscipit nunc placerat. Quisque a porttitor mauris, id maximus neque. Morbi at ex ac tellus imperdiet pulvinar et quis diam. Mauris a nunc eget elit consectetur porttitor quis et nisl. Etiam ut ante in elit varius viverra eget blandit nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent facilisis placerat pharetra. Sed eu condimentum ipsum, id tincidunt enim. Praesent vel nisl vel nisi scelerisque fermentum. Nunc ac viverra lorem. Suspendisse dapibus tortor sagittis, lobortis lectus ac, imperdiet nisl. Cras semper, ante ullamcorper fermentum condimentum, nunc augue dignissim ex, ut vestibulum neque lacus ut tortor. Fusce tempus ligula ut eleifend semper. Aenean pharetra quam nulla, eu ullamcorper justo tincidunt vel. Donec laoreet elit ut accumsan consectetur.",
+            "subtitle_7": "Recourse",
+            "p7": "Sed scelerisque tincidunt condimentum. Morbi metus mi, tincidunt sed mi accumsan, consequat mattis erat. Vivamus tellus dolor, aliquet id velit non, placerat elementum ex. Nulla in efficitur quam, a consectetur eros. Etiam pellentesque feugiat justo. Suspendisse laoreet accumsan enim eu mollis. Praesent sit amet enim sodales, elementum massa vel, consequat dolor. Nulla et lorem ut neque ornare finibus. Etiam quis ex ut ipsum volutpat rhoncus. Aenean a faucibus magna.",
+            "subtitle_8": "Third party content",
+            "p8": "In blandit ultricies ligula, eget blandit ipsum luctus eu. Etiam diam diam, egestas et posuere lacinia, maximus vel nunc. Curabitur ac mi faucibus, fringilla massa eu, vulputate ipsum. Duis lacinia, odio in tincidunt vehicula, enim velit ornare nibh, non interdum enim nunc at arcu. Morbi dictum risus vitae nisl viverra iaculis. Nullam vitae eros eget mi ornare elementum. Phasellus cursus eros vitae nibh ultrices eleifend. Vestibulum tincidunt imperdiet tincidunt.",
+            "subtitle_9": "Viruses",
+            "p9": "Nunc dignissim, mi nec ullamcorper aliquam, sapien eros lacinia lacus, at volutpat lorem augue a velit. Donec at faucibus orci. Proin eu ex vitae dui suscipit eleifend. Ut molestie mauris urna, ac dignissim est hendrerit eget. Sed sed convallis dolor, eget dignissim augue. Praesent hendrerit, ligula quis venenatis consectetur, quam neque lobortis quam, quis dignissim elit justo in augue. Ut id iaculis nibh, non semper magna.",
+            "subtitle_10": "Miscellaneous terms",
+            "p10": "Nunc suscipit magna et ante laoreet congue vehicula sed dolor. Maecenas tincidunt lobortis ultrices. Nullam velit nisl, convallis a gravida euismod, blandit ut nisi. Suspendisse sit amet nulla turpis. Sed nec felis sagittis, rhoncus diam in, posuere diam. Maecenas efficitur erat a erat tempus, varius accumsan felis posuere. Sed dapibus ante vel vulputate molestie. Proin pharetra ultrices magna, laoreet dapibus erat. Donec diam odio, ultricies quis egestas ut, finibus quis ligula. Nunc a pretium libero. Sed sodales purus eget feugiat iaculis. Ut venenatis est eget arcu pellentesque, tincidunt semper mi vulputate. Nunc elementum neque at tristique feugiat.",
+            "subtitle_11": "Contact us",
+            "p11": "We hope this statement has been informative and clear. Please contact us regarding any questions or further information you may be interested in."
+        }
+    },
+    "ContactPage": {
+        "title": "<h1>Contact us</h1>",
+        "form": {
+            "input_name_placeholder": "Name",
+            "input_email_placeholder": "Email address",
+            "input_message_placeholder": "Message",
+            "button_submit": "Send"
+        }
+    }
+}
