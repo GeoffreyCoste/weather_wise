@@ -11,6 +11,7 @@ import { ModalProvider } from '@/context/modalContext';
 import { Modal } from '@/components/ModalPortal/Modal/Modal';
 import { SideMenu } from '@/components/SideMenu/SideMenu';
 import { Footer } from '@/components/Footer/Footer';
+import { AuthProvider } from '@/components/AuthProvider/AuthProvider';
 
 const raleway = Raleway({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -69,11 +70,13 @@ export default async function LocaleLayout({
           <ThemeProvider>
             <ModalProvider>
               <TemperatureProvider>
+                <AuthProvider>
                   <Header themeCookie={themeCookie} temperatureCookie={temperatureCookie} />
                   {children}
                   <Footer />
                   <SideMenu themeCookie={themeCookie} temperatureCookie={temperatureCookie} />
                   <Modal />
+                </AuthProvider>
               </TemperatureProvider>
             </ModalProvider>
           </ThemeProvider>
