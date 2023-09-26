@@ -148,5 +148,71 @@
             "input_message_placeholder": "Message",
             "button_submit": "Send"
         }
+    },
+    "SignupPage": {
+        "form": {
+            "title": "Welcome!",
+            "baseline": "Create your Account",
+            "rule": "<p>Fields preceded by <span>&#42;</span> are required</p>",
+            "input_firstname_label": "First Name",
+            "input_firstname_placeholder": "First Name",
+            "input_firstname_errors": {
+                "empty": "The First Name field is required",
+                "min_length": "First Name should include at least 2 characters",
+                "max_length": "First Name should not exceed 50 characters",
+                "only_alphabet": "Numbers and special characters are not allowed"
+            },
+            "input_lastname_label": "Last Name",
+            "input_lastname_placeholder": "Last Name",
+            "input_lastname_errors": {
+                "empty": "The Last Name field is required",
+                "min_length": "Last Name should include at least 2 characters",
+                "max_length": "Last Name should not exceed 50 characters",
+                "only_alphabet": "Numbers and special characters are not allowed"
+            },
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "empty": "The Email field is mandatory",
+                "format": "Email format: example@email.com",
+                "not_unique": "This email address is already in use. Log in or use another email."
+            },
+            "input_password_label": "Password",
+            "input_password_placeholder": "Password",
+            "input_password_errors": {
+                "empty": "The Password field is required",
+                "combos": {
+                    "intro": "Your password must have:",
+                    "items": "<item>8 or more characters</item><item>upper and lowercase letters</item><item>At least 1 number</item><item>At least 1 special character (e.g. !?@#$€&%*^)</item>"
+                }
+            },
+            "button_submit_signup": "Sign Up"
+        },
+        "login_link": {
+            "text": "You already have an account?",
+            "link": "Login"
+        }
+    },
+    "LoginPage": {
+        "form": {
+            "title": "Welcome back!",
+            "baseline": "Log In to your Account",
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "empty": "The Email field is mandatory",
+                "format": "Email format: example@email.com"
+            },
+            "input_password_label": "Password",
+            "input_password_placeholder": "Password",
+            "input_password_errors": {
+                "empty": "The Password field is required"
+            },
+            "button_submit_login": "Log In"
+        },
+        "login_link": {
+            "text": "You don't have an account?",
+            "link": "Sign Up"
+        }
     }
 }

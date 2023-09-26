@@ -20,6 +20,7 @@ export const ContactForm = () => {
           placeholder={t('form.input_name_placeholder')}
           type="text"
           id="name"
+          name="name"
           required
           aria-required="true"
         />
@@ -35,6 +36,7 @@ export const ContactForm = () => {
             placeholder={t('form.input_email_placeholder')}
             type="email"
             id="email"
+            name="email"
           />
         </div>
       <div>
@@ -48,6 +50,7 @@ export const ContactForm = () => {
           placeholder={t('form.input_message_placeholder')}
           rows={8}
           id="message"
+          name="message"
         ></textarea>
       </div>
       <div className="mt-4">

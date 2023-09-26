@@ -144,9 +144,76 @@
         "title": "<h1>Nous contacter</h1>",
         "form": {
             "input_name_placeholder": "Nom",
-            "input_email_placeholder": "Adresse email",
+            "input_email_placeholder": "Email",
             "input_message_placeholder": "Message",
             "button_submit": "Envoyer"
+        }
+    },
+    "SignupPage": {
+        "form": {
+            "title": "Bienvenue !",
+            "baseline": "Créez votre compte",
+            "rule": "<p>Les champs précédés de <span>*</span> sont obligatoires</p>",
+            "input_firstname_label": "Prénom",
+            "input_firstname_placeholder": "Prénom",
+            "input_firstname_errors": {
+                "empty": "Le prénom est un champ obligatoire",
+                "min_length": "Le prénom doit comporter au moins 2 caractères",
+                "max_length": "Le prénom ne doit pas excéder la limite de 50 caractères maximum",
+                "only_alphabet": "Les chiffres et caractères spéciaux ne sont pas autorisés"
+            },
+            "input_lastname_label": "Nom",
+            "input_lastname_placeholder": "Nom",
+            "input_lastname_errors": {
+                "empty": "Le nom est un champ obligatoire",
+                "min_length": "Le nom doit comporter au moins 2 caractères",
+                "max_length": "Le nom ne doit pas excéder la limite de 50 caractères maximum",
+                "only_alphabet": "Les chiffres et caractères spéciaux ne sont pas autorisés"
+            },
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "empty": "L'email est un champ obligatoire",
+                "format": "Le format de l'email est : exemple@email.com",
+                "not_unique": "Cette adresse email est déjà utilisée. Connectez-vous ou utilisez un autre email."
+            },
+            "input_password_label": "Mot de passe",
+            "input_password_placeholder": "Mot de passe",
+            "input_password_errors": {
+                "empty": "Le mot de passe est un champ obligatoire",
+                "combos": {
+                    "intro": "Votre mot de passe doit comporter :",
+                    "items": "<item>Au moins 8 caractères</item><item>Des majuscules et des minuscules</item><item>Au moins 1 nombre</item><item>Au moins 1 caractère spécial (Ex : !?@#$€&%*^)</item>"
+                }
+            },
+            "button_submit_signup": "Créer un compte"
+        },
+        "login_link": {
+            "text": "Vous disposez déjà d'un compte ?",
+            "link": "Se connecter"
+        }
+    },
+    "LoginPage": {
+        "form": {
+            "title": "Ravis de vous revoir !",
+            "baseline": "Connectez-vous à votre compte",
+            "rule": "<p>Les champs précédés de <span>*</span> sont obligatoires</p>",
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "empty": "L'email est un champ obligatoire",
+                "format": "Le format de l'email est : exemple@email.com"
+            },
+            "input_password_label": "Mot de passe",
+            "input_password_placeholder": "Mot de passe",
+            "input_password_errors": {
+                "empty": "Le mot de passe est un champ obligatoire"
+            },
+            "button_submit_login": "Se connecter"
+        },
+        "signup_link": {
+            "text": "Vous ne disposez pas encore d'un compte ?",
+            "link": "Créez-en un dès à présent."
         }
     }
 }
