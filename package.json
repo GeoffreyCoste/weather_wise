@@ -1,5 +1,5 @@
 {
-  "name": "weather_wise",
+  "name": "weather-wise",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,19 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "latest",
-    "react-dom": "latest",
-    "next": "latest"
+    "@types/node": "20.2.5",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "18.2.4",
+    "autoprefixer": "10.4.14",
+    "clsx": "^2.0.0",
+    "dotenv": "^16.3.1",
+    "eslint": "8.41.0",
+    "eslint-config-next": "13.4.4",
+    "framer-motion": "^10.16.1",
+    "next": "^13.4.19",
+    "next-intl": "^2.19.1",
+    "postcss": "8.4.24",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "react-select": "^5.7.4",
+    "tailwindcss": "3.3.2"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
-    "@types/node": "latest",
-    "@types/react-dom": "latest",
-    "autoprefixer": "latest",
-    "postcss": "latest",
-    "tailwindcss": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest"
+    "eslint-config-molindo": "^7.0.0",
+    "prettier-plugin-tailwindcss": "^0.5.3",
+    "typescript": "^5.2.2"
   }
 }
