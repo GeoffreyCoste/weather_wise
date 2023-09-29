@@ -58,7 +58,7 @@ export const NewPasswordForm = () => {
                 <p className="text-center font-medium text-blue-700 dark:text-white lg:text-lg mb-8">{t('form.baseline')}</p>
                 { error && ( <div className="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">{ error }</div>) }
                 <div className="mb-4">
-                    <label htmlFor="new_password" className="block text-gray-700 text-sm font-bold mb-2">{t('form.input_email_label')}</label>
+                    <label htmlFor="new_password" className="block text-gray-700 text-sm font-bold mb-2">{t('form.input_new_password_label')}</label>
                     <input 
                         type="password" 
                         name="new_password" 

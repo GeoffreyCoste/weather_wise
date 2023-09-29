@@ -5,13 +5,17 @@ import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl';
 
 async function verifyToken(payload) {
-	const response = await fetch('/verify-token', { 
-        method: 'POST', 
-        body: JSON.stringify(payload) 
-    });
-
-	if (!response.ok) return undefined
-	return response.json()
+    try {
+        const response = await fetch('/api/verify-token', { 
+            method: 'POST', 
+            body: JSON.stringify(payload) 
+        });
+    
+        if (!response.ok) return undefined
+        return response.json()
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 export const EnterTokenForm = (request) => {
@@ -23,15 +27,22 @@ export const EnterTokenForm = (request) => {
     const t = useTranslations('EnterTokenPage');
 
     async function onVerifyToken(event: SyntheticEvent<HTMLFormElement>) {
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
+        event.preventDefault();
+
+        const formData = new FormData(event.currentTarget);
+
         const payload = {
             token: formData.get('token'),
-        }
+        };
+
         const response = await verifyToken(payload);
-        if (response.error) {
+        console.log(response);
+
+
+        if (response?.error) {
+            console.log(error);
             setError(response.error);
-        } else if (response.redirect) {
+        } else if (response?.redirect) {
             router.push(response.redirect);
         };
         return true;
