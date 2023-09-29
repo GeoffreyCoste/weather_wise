@@ -203,6 +203,7 @@
                 "empty": "The Email field is mandatory",
                 "format": "Email format: example@email.com"
             },
+            "forgot_password_link": "Forgot password?",
             "input_password_label": "Password",
             "input_password_placeholder": "Password",
             "input_password_errors": {
@@ -213,6 +214,41 @@
         "login_link": {
             "text": "You don't have an account?",
             "link": "Sign Up"
+        },
+        "success_reset_password": "Your password has been successfully updated"
+    },
+    "ForgotPasswordPage": {
+        "form": {
+            "title": "Reset password",
+            "baseline": "Please confirm the email address used to create your account in order to get instructions for resetting your password",
+            "input_email_label": "Email",
+            "input_mobile_placeholder": "Email",
+            "input_mobile_label": "Mobile Phone",
+            "input_email_placeholder": "Mobile Phone",
+            "button_submit_reset": "Reset"
+        },
+        "login_link": "Return to Login Page",
+        "error_invalid_value": "Invalid email address or phone number"
+    },
+    "EnterTokenPage": {
+        "form": {
+            "title": "Enter verification code",
+            "baseline": "Confirm below the verification code that we have sent you by", 
+            "input_token_label": "Verification code",
+            "input_email_placeholder": "Verification code",
+            "button_submit_token": "Submit"
+        },
+        "error_invalid_token": "Invalid verification code"
+    },
+    "NewPasswordPage": {
+        "form": {
+            "title": "Change password",
+            "baseline": "Confirm below your new password",
+            "input_new_password_label": "New password",
+            "input_new_password_placeholder": "New password",
+            "input_new_password_confirm_label": "Confirm new password",
+            "input_new_password_confirm_placeholder": "Confirm new password",
+            "button_submit_change": "Save change"
         }
     }
 }

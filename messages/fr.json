@@ -204,6 +204,7 @@
                 "empty": "L'email est un champ obligatoire",
                 "format": "Le format de l'email est : exemple@email.com"
             },
+            "forgot_password_link": "Mot de passe oublié ?",
             "input_password_label": "Mot de passe",
             "input_password_placeholder": "Mot de passe",
             "input_password_errors": {
@@ -214,6 +215,41 @@
         "signup_link": {
             "text": "Vous ne disposez pas encore d'un compte ?",
             "link": "Créez-en un dès à présent."
+        },
+        "success_reset_password": "Votre mot de passe a bien été modifié"
+    },
+    "ForgotPasswordPage": {
+        "form": {
+            "title": "Réinitialiser mot de passe",
+            "baseline": "Confirmez l'adresse email fournie pour la création de votre compte afin d'obtenir des instructions pour réinitialiser votre mot de passe",
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_mobile_label": "Mobile",
+            "input_mobile_placeholder": "Mobile",
+            "button_submit_reset": "Réinitialiser"
+        },
+        "login_link": "Retour à la page de connexion",
+        "error_invalid_value": "Adresse email ou numéro de téléphone invalide"
+    },
+    "EnterTokenPage": {
+        "form": {
+            "title": "Entrer code de vérification",
+            "baseline": "Confirmez ci-dessous le code de vérification que nous vous avons envoyé par",
+            "input_token_label": "Code de vérification",
+            "input_email_placeholder": "Code de vérification",
+            "button_submit_token": "Soumettre"
+        },
+        "error_invalid_token": "Code de vérification invalide"
+    },
+    "NewPasswordPage": {
+        "form": {
+            "title": "Changer mot de passe",
+            "baseline": "Validez ci-dessous votre nouveau mot de passe",
+            "input_new_password_label": "Nouveau mot de passe",
+            "input_new_password_placeholder": "Nouveau mot de passe",
+            "input_new_password_confirm_label": "Confirmer nouveau mot de passe",
+            "input_new_password_confirm_placeholder": "Confirmation nouveau mot de passe",
+            "button_submit_change": "Enregistrer le changement"
         }
     }
 }

@@ -18,7 +18,7 @@ export const LoginForm = () => {
 
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const { status } = useSession();
+  const { data, status } = useSession();
   const router = useRouter();
 
   const t = useTranslations('LoginPage');
@@ -72,6 +72,7 @@ export const LoginForm = () => {
   const password = watch('password');
 
   useEffect(() => {
+      console.log(data)
       console.log('status: ', status);
 
       if (status === "authenticated") {
@@ -127,6 +128,9 @@ export const LoginForm = () => {
               </div>
           </div>
           <div className="relative">
+            <div className="absolute -top-4 right-6 text-sm mt-6">
+              <Link href="/forgot-password" className="relative font-semibold text-blue-700 dark:text-sky-400 hover:underline after:content-['→'] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-5 after:invisible hover:after:visible hover:after:animate-pulse">{t('form.forgot_password_link')}</Link>
+            </div>
             <span className="text-lg font-black text-blue-700 dark:text-sky-400 mr-1.5">&#42;</span>
             <label htmlFor="login-input-password" className="text-sm font-semibold text-gray-800 dark:text-white">{t('form.input_password_label')}</label>
             <input
