@@ -24,5 +24,9 @@ export async function POST(request: Request) {
         redirect: '/login',
         message: 'success_reset_password'
     });
+  } else {
+    return NextResponse.json({
+      error: 'error_reset_password'
+    });
   }
 }

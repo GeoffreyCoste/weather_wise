@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, SyntheticEvent } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { signIn, useSession } from 'next-auth/react'
 import { useForm, SubmitHandler } from 'react-hook-form'
@@ -148,36 +148,20 @@ export const SignupForm = () => {
 
   return (
     <div className="relative flex w-full flex-col rounded-lg px-4 py-14 sm:w-10/12 sm:py-24 md:w-3/4 md:py-32 lg:w-3/4 2xl:w-3/5 bg-white dark:bg-blue-950">
-        <form className="lg:w-1/2 lg:mx-auto" onSubmit={handleSubmit(validateFormData)}>
-            <h1 className="text-center font-black text-blue-700 dark:text-white lg:text-3xl mb-4">{t('form.title')}</h1>
-            <p className="text-center font-medium text-blue-700 dark:text-white lg:text-lg mb-8">{t('form.baseline')}</p>
-            {t.rich("form.rule", {
-              p: (chunks) => (
-                <p
-                  className="text-sm text-center italic dark:text-white/75 mb-8"
-                >
-                  {chunks}
-                </p>
-              ),
-              span: (chunks) => (
-                <span
-                  className="text-lg font-black text-blue-700 dark:text-sky-400"
-                >
-                  {chunks}
-                </span>
-              )
-            })}
+        <form className="w-full sm:w-2/3 sm:mx-auto lg:w-1/2" onSubmit={handleSubmit(validateFormData)}>
+            <h1 className="text-center font-black text-blue-700 dark:text-white text-3xl mb-4">{t('form.title')}</h1>
+            <p className="text-center font-medium text-blue-700 dark:text-white text-lg mb-8">{t('form.baseline')}</p>
+            <p className="text-sm text-center italic dark:text-white/75 mb-8">{t.rich("form.rule")}</p>
             <div>
-                <span className="text-lg font-black text-blue-700 dark:text-sky-400 mr-1.5">&#42;</span>
-                <label htmlFor="signup-input-firstname" className="text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_firstname_label')}</label>
+                <label htmlFor="signup-input-firstname" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_firstname_label')}</label>
                 <input
                   className={`
                       w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal 
                       dark:text-white dark:bg-[#0F1A3E] border 
                       disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-                      ${!firstName 
+                      ${!firstName && !errors.firstName?.message
                           ? 'border-gray-300 hover:border-gray-400 dark:border-gray-300 dark:hover:border-gray-400 focus:outline-none focus:border-blue-700 focus:ring-1 focus:ring-blue-700 dark:focus:border-sky-400 dark:focus:ring-sky-400'
-                          : errors.firstName?.message 
+                          : errors.firstName?.message
                               ? 'border-rose-500 ring-rose-500 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 dark:focus:border-rose-500 dark:focus:ring-rose-500'
                               : 'border-green-500 ring-green-500 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 dark:focus:border-green-500 dark:focus:ring-green-500'
                       }
@@ -194,14 +178,13 @@ export const SignupForm = () => {
                 </div>
             </div>
             <div>
-            <span className="text-lg font-black text-blue-700 dark:text-sky-400 mr-1.5">&#42;</span>
-                <label htmlFor="signup-input-lastname" className="text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_lastname_label')}</label>
+                <label htmlFor="signup-input-lastname" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_lastname_label')}</label>
                 <input
                   className={`
                   w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal 
                   dark:text-white dark:bg-[#0F1A3E] border 
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-                  ${!lastName 
+                  ${!lastName && !errors.lastName?.message
                       ? 'border-gray-300 hover:border-gray-400 dark:border-gray-300 dark:hover:border-gray-400 focus:outline-none focus:border-blue-700 focus:ring-1 focus:ring-blue-700 dark:focus:border-sky-400 dark:focus:ring-sky-400'
                       : errors.lastName?.message 
                           ? 'border-rose-500 ring-rose-500 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 dark:focus:border-rose-500 dark:focus:ring-rose-500'
@@ -221,16 +204,15 @@ export const SignupForm = () => {
                 </div>
             </div>
             <div>
-              <span className="text-lg font-black text-blue-700 dark:text-sky-400 mr-1.5">&#42;</span>
-              <label htmlFor="signup-input-email" className="text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_email_label')}</label>
+              <label htmlFor="signup-input-email" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_email_label')}</label>
               <input
                 className={`
                     w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal 
                     dark:text-white dark:bg-[#0F1A3E] border 
                     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-                    ${!email 
+                    ${!email && !errors.email?.message
                         ? 'border-gray-300 hover:border-gray-400 dark:border-gray-300 dark:hover:border-gray-400 focus:outline-none focus:border-blue-700 focus:ring-1 focus:ring-blue-700 dark:focus:border-sky-400 dark:focus:ring-sky-400'
-                        : errors.email?.message 
+                        : errors.email?.message
                             ? 'border-rose-500 ring-rose-500 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 dark:focus:border-rose-500 dark:focus:ring-rose-500'
                             : 'border-green-500 ring-green-500 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 dark:focus:border-green-500 dark:focus:ring-green-500'
                     }
@@ -248,14 +230,13 @@ export const SignupForm = () => {
               </div>
             </div>
             <div className="relative">
-              <span className="text-lg font-black text-blue-700 dark:text-sky-400 mr-1.5">&#42;</span>
-              <label htmlFor="signup-input-password" className="text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_password_label')}</label>
+              <label htmlFor="signup-input-password" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_password_label')}</label>
               <input
                 className={`
                   w-full rounded-lg mb-1 p-3 pr-12 text-sm font-medium placeholder:font-normal 
                   dark:text-white dark:bg-[#0F1A3E] border 
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-                  ${!firstName 
+                  ${!password && !errors.password?.message
                           ? 'border-gray-300 hover:border-gray-400 dark:border-gray-300 dark:hover:border-gray-400 focus:outline-none focus:border-blue-700 focus:ring-1 focus:ring-blue-700 dark:focus:border-sky-400 dark:focus:ring-sky-400'
                           : errors.password?.message 
                               ? 'border-rose-500 ring-rose-500 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 dark:focus:border-rose-500 dark:focus:ring-rose-500'
@@ -268,22 +249,22 @@ export const SignupForm = () => {
                 {...register('password')}
                 /* pattern="/(?=.*[_!@#$%§^&*-])(?=.*\d)(?!.*[.\n])(?=.*[a-z])(?=.*[A-Z])^.{8,}$/" */
               />
-              <div className={`absolute top-10 right-4 w-6 h-6 cursor-pointer before:w-8 before:h-8 before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 ${ themeState.theme === 'light' ? 'hover:before:bg-yellow-400' : 'hover:before:bg-white'}`} onClick={togglePasswordVisiblity}>
+              <div className={`absolute top-[34px] right-4 w-6 h-6 cursor-pointer before:w-8 before:h-8 before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 ${ themeState.theme === 'light' ? 'hover:before:bg-yellow-400' : 'hover:before:bg-white'}`} onClick={togglePasswordVisiblity}>
                 {passwordShown ? <EyeSlashIcon /> : <EyeIcon />}
               </div>
               <div className="w-full min-h-[20px]">
                 {errors.password?.message === 'form.input_password_errors.combos.items' ? (
-                  <ul ref={pswErrListRef} className="relative ml-3 pt-5 pr-4 text-xs text-rose-500 font-semibold before:content-[attr(aria-label)] before:font-semibold before:text-gray-800 dark:before:text-white before:absolute before:top-0" aria-label={t('form.input_password_errors.combos.intro')}>
-                    {t.rich(errors.password.message, {
-                      item: (chunks) => <li className="pl-4 before:content-['x'] before:absolute before:left-0 before:font-extrabold">{chunks}</li>
-                    })}
-                  </ul>
-                )
-                :
-                (
-                  <p className="text-xs text-rose-500 font-semibold pl-2">{errors.password?.message}</p>
-                )
-              }
+                    <ul ref={pswErrListRef} className="relative ml-3 pt-5 pr-4 text-xs text-rose-500 font-semibold before:content-[attr(aria-label)] before:font-semibold before:text-gray-800 dark:before:text-white before:absolute before:top-0" aria-label={t('form.input_password_errors.combos.intro')}>
+                      {t.rich(errors.password.message, {
+                        item: (chunks) => <li className="pl-4 before:content-['x'] before:absolute before:left-0 before:font-extrabold">{chunks}</li>
+                      })}
+                    </ul>
+                  )
+                  :
+                  (
+                    <p className="text-xs text-rose-500 font-semibold pl-2">{errors.password?.message}</p>
+                  )
+                }
               </div>
             </div>
             <div className="mt-4">
@@ -294,7 +275,7 @@ export const SignupForm = () => {
               />
             </div>
         </form>
-        <div className="lg:w-1/2 flex justify-center text-sm mt-6 lg:mx-auto">
+        <div className="lg:w-1/2 flex flex-col items-center lg:flex-row lg:justify-center text-sm mt-6 lg:mx-auto">
           <p className="dark:text-white">{t('login_link.text')}&nbsp;</p>
           <Link href="/login" className="relative text-blue-700 dark:text-sky-400 font-semibold hover:underline after:content-['→'] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-5 after:invisible hover:after:visible hover:after:animate-pulse">{t('login_link.link')}</Link>
         </div>

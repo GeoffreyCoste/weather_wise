@@ -153,7 +153,7 @@
         "form": {
             "title": "Welcome!",
             "baseline": "Create your Account",
-            "rule": "<p>Fields preceded by <span>&#42;</span> are required</p>",
+            "rule": "All fields are required.",
             "input_firstname_label": "First Name",
             "input_firstname_placeholder": "First Name",
             "input_firstname_errors": {
@@ -197,6 +197,7 @@
         "form": {
             "title": "Welcome back!",
             "baseline": "Log In to your Account",
+            "rule": "(All fields are required.)",
             "input_email_label": "Email",
             "input_email_placeholder": "Email",
             "input_email_errors": {
@@ -215,16 +216,24 @@
             "text": "You don't have an account?",
             "link": "Sign Up"
         },
-        "success_reset_password": "Your password has been successfully updated"
+        "success_reset_password": "Your password has been successfully updated 👍",
+        "error_reset_password": "Passwords must match"
     },
     "ForgotPasswordPage": {
         "form": {
             "title": "Reset password",
-            "baseline": "Please confirm the email address used to create your account in order to get instructions for resetting your password",
+            "baseline": {
+                "items": "<item>You forgot your password?</item><item>Create a new one.</item>"
+            },
+            "rule": "Please enter your login email to receive a verification code to reset your password. The receipt of the aforementioned code by SMS is only available to users whose mobile phone number has been previously verified.",
             "input_email_label": "Email",
-            "input_mobile_placeholder": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "format": "Email format: example@email.com"
+            },
+            "input_separation_text": "or",
             "input_mobile_label": "Mobile Phone",
-            "input_email_placeholder": "Mobile Phone",
+            "input_mobile_placeholder": "Mobile Phone",
             "button_submit_reset": "Reset"
         },
         "login_link": "Return to Login Page",
@@ -232,22 +241,32 @@
     },
     "EnterTokenPage": {
         "form": {
-            "title": "Enter verification code",
-            "baseline": "Confirm below the verification code that we have sent you by", 
-            "input_token_label": "Verification code",
-            "input_email_placeholder": "Verification code",
+            "title": "Enter confirmation code",
+            "baseline": "We have just sent it to you by",
+            "rule": "Please enter the confirmation code that we have sent you by", 
+            "input_token_label": "Confirmation code",
+            "input_token_placeholder": "Confirmation code",
+            "input_token_errors": {
+                "empty": "The Confirmation Code is required",
+                "format": "Confirmation Code do not match its expected format"
+            },
             "button_submit_token": "Submit"
         },
+        "forgot_password_link": "You did not receive the code?",
         "error_invalid_token": "Invalid verification code"
     },
     "NewPasswordPage": {
         "form": {
             "title": "Change password",
-            "baseline": "Confirm below your new password",
+            "baseline": "Please enter your new password",
             "input_new_password_label": "New password",
             "input_new_password_placeholder": "New password",
             "input_new_password_confirm_label": "Confirm new password",
             "input_new_password_confirm_placeholder": "Confirm new password",
+            "input_new_password_confirm_errors": {
+                "empty": "The Confirm Password field is required",
+                "noMatch": "Passwords don't match"
+            },
             "button_submit_change": "Save change"
         }
     }
