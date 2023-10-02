@@ -17,7 +17,7 @@ export async function POST(request: Request) {
             id: userId,
         },
         data: {
-            password: await bcrypt.hash(body.password, 10),
+            password: await bcrypt.hash(body.newPassword, 10),
         }
     });
     return NextResponse.json({
@@ -25,21 +25,4 @@ export async function POST(request: Request) {
         message: 'success_reset_password'
     });
   }
-
-  // get user_id from session
-  /* const user_id = getSession(request, 'user_id')
-  // update the user
-  if (user_id && newPassword && newPasswordConfirm && (newPassword === newPasswordConfirm)) {
-    await updatePassword(user_id, newPassword)
-    return NextResponse.json({
-      redirect: '/',
-      message: 'Your password has been reset 👍'
-    })
-  }
-  else {
-    // password don't match
-    return NextResponse.json({
-      error: 'Your passwords must match'
-    })
-  } */
 }
