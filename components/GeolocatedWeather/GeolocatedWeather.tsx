@@ -169,7 +169,7 @@ const GeolocatedWeather = (settings = {}) => {
       {!hasGeolocation ? (
         <button 
             id="button-geolocation" 
-            className="w-60 font-semibold text-sm md:text-base rounded-full mx-auto my-12 px-6 py-2 text-blue-700 border border-2 border-blue-700 lg:hover:text-white lg:hover:bg-gradient-to-tr lg:hover:from-blue-700 lg:hover:to-blue-400 dark:text-sky-400 dark:border-sky-400 lg:dark:hover:dark:text-[#172554] lg:dark:hover:bg-gradient-to-tl lg:dark:hover:bg-gradient-to-tr lg:dark:hover:from-sky-400 lg:dark:hover:to-cyan-300 lg:hover:border-transparent"
+            className="w-60 font-semibold rounded-full mx-auto my-12 px-6 py-2 text-blue-700 border border-2 border-blue-700 lg:hover:text-white lg:hover:bg-gradient-to-tr lg:hover:from-blue-700 lg:hover:to-blue-400 dark:text-sky-400 dark:border-sky-400 lg:dark:hover:dark:text-[#172554] lg:dark:hover:bg-gradient-to-tl lg:dark:hover:bg-gradient-to-tr lg:dark:hover:from-sky-400 lg:dark:hover:to-cyan-300 lg:hover:border-transparent z-50"
             type="button" 
             tabIndex={0} 
             role="button" 
@@ -181,7 +181,7 @@ const GeolocatedWeather = (settings = {}) => {
       ) : (
         <button 
             id="button-geolocation-refresh" 
-            className="w-60 font-semibold text-sm md:text-base rounded-full mx-auto my-12 px-6 py-2 text-blue-700 border border-2 border-blue-700 lg:hover:text-white lg:hover:bg-gradient-to-tr lg:hover:from-blue-700 lg:hover:to-blue-400 lg:hover:border-white dark:text-sky-400 dark:border-sky-400 lg:dark:hover:dark:text-[#172554] lg:dark:hover:bg-gradient-to-tl lg:dark:hover:bg-gradient-to-tr lg:dark:hover:from-sky-400 lg:dark:hover:to-cyan-300 lg:dark:hover:border-[#172554]"
+            className="w-60 font-semibold rounded-full mx-auto my-12 px-6 py-2 text-blue-700 border border-2 border-blue-700 lg:hover:text-white lg:hover:bg-gradient-to-tr lg:hover:from-blue-700 lg:hover:to-blue-400 lg:hover:border-white dark:text-sky-400 dark:border-sky-400 lg:dark:hover:dark:text-[#172554] lg:dark:hover:bg-gradient-to-tl lg:dark:hover:bg-gradient-to-tr lg:dark:hover:from-sky-400 lg:dark:hover:to-cyan-300 lg:dark:hover:border-[#172554]"
             type="button" 
             tabIndex={0} 
             role="button" 

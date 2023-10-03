@@ -7,6 +7,7 @@ import {IntlMessages} from '@/global';
 
 type Props = {
   item: string | IntlMessages;
+  toggleOpen: () => void;
 };
 
 const variants = {
@@ -26,7 +27,7 @@ const variants = {
   }
 };
 
-export const NavItem = ({item}: Props) => {
+export const NavItem = ({item, toggleOpen}: Props) => {
   const t = useTranslations('LocaleLayout.header.navbar.navlinks');
 
   const {themeState} = useTheme();
@@ -39,7 +40,11 @@ export const NavItem = ({item}: Props) => {
         }`}
         variants={variants}
       >
-        <Link className="flex items-center justify-between" href={`/${item}`}>
+        <Link 
+          className="flex items-center justify-between" 
+          href={`/${item}`} 
+          onClick={toggleOpen}
+        >
           {t(item)}
           <span className="text-3xl">&#8250;</span>
         </Link>

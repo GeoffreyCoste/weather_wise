@@ -91,7 +91,7 @@
         "transition_paragraph": "or just find out",
         "sub_title": "what's your location's weather?",
         "button_geolocation": "Geolocate me",
-        "button_geolocation_refresh": "Refresh geolocation"
+        "button_geolocation_refresh": "Refresh"
     },
     "CityPage": {
         "title": "<h1>Our forecasts</h1>"

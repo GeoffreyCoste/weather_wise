@@ -91,7 +91,7 @@
         "transition_paragraph": "ou découvrez tout simplement",
         "sub_title": "quel temps fait-il chez vous ?",
         "button_geolocation": "Géolocalisez-moi",
-        "button_geolocation_refresh": "Actualiser ma géolocalisation"
+        "button_geolocation_refresh": "Actualiser"
     },
     "CityPage": {
         "title": "<h1>Nos prévisions</h1>"

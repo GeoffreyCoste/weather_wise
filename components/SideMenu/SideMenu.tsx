@@ -50,14 +50,17 @@ export const SideMenu = ({themeCookie, temperatureCookie}: Props) => {
   useEffect(() => {
     let root = document.documentElement; // Targeting <html> tag
     let buttonOpenModal = document.querySelector('#button-open-modal');
+    let buttonLogo = document.querySelector('#header-button-logo');
 
     if (isMenuOpen) {
       root.classList.add('fixed', 'overflow-y-scroll', 'w-full');
       buttonOpenModal?.setAttribute("style", "z-index:30");
+      buttonLogo?.setAttribute("style", "z-index:30");
     } else {
       root.classList.remove('fixed', 'overflow-y-scroll', 'w-full');
       setTimeout(() => {
         buttonOpenModal?.removeAttribute("style");
+        buttonLogo?.removeAttribute("style");
       }, 500);
     }
   }, [isMenuOpen]);
@@ -123,8 +126,8 @@ export const SideMenu = ({themeCookie, temperatureCookie}: Props) => {
           }`}
           variants={sidebar}
         ></m.div>
-        {isMenuOpen && <Navigation />}
-        {isMenuOpen && <Settings themeCookie={themeCookie} temperatureCookie={temperatureCookie} />}
+        {isMenuOpen && <Navigation toggleOpen={toggleOpen} />}
+        {isMenuOpen && <Settings themeCookie={themeCookie} temperatureCookie={temperatureCookie} toggleOpen={toggleOpen} />}
       </m.div>
     </LazyMotion>
   );

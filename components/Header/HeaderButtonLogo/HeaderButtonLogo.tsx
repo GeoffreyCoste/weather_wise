@@ -19,7 +19,7 @@ export const HeaderButtonLogo = () => {
       id="header-button-logo"
       href="/"
       as="/"
-      className="flex sm:mr-auto md:mr-14 lg:mr-auto z-30"
+      className="flex sm:mr-auto md:mr-14 lg:mr-auto z-50"
     >
       <Image
         width={isLgBreakpointReached ? '75' : '60'}
