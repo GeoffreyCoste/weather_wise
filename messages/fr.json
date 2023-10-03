@@ -141,12 +141,40 @@
         }
     },
     "ContactPage": {
-        "title": "<h1>Nous contacter</h1>",
         "form": {
-            "input_name_placeholder": "Nom",
+            "title": "Parlons de la pluie et du beau temps ...",
+            "baseline": "Et de toute question que vous pourriez vous poser !",
+            "rule": "(Tous les champs sont obligatoires.)",
+            "input_firstname_label": "Prénom",
+            "input_firstname_placeholder": "Prénom",
+            "input_firstname_errors": {
+                "empty": "Le prénom est un champ obligatoire",
+                "min_length": "Le prénom doit comporter au moins 2 caractères",
+                "max_length": "Le prénom ne doit pas excéder la limite de 50 caractères maximum",
+                "only_alphabet": "Les chiffres et caractères spéciaux ne sont pas autorisés"
+            },
+            "input_lastname_label": "Nom",
+            "input_lastname_placeholder": "Nom",
+            "input_lastname_errors": {
+                "empty": "Le nom est un champ obligatoire",
+                "min_length": "Le nom doit comporter au moins 2 caractères",
+                "max_length": "Le nom ne doit pas excéder la limite de 50 caractères maximum",
+                "only_alphabet": "Les chiffres et caractères spéciaux ne sont pas autorisés"
+            },
+            "input_email_label": "Email",
             "input_email_placeholder": "Email",
-            "input_message_placeholder": "Message",
-            "button_submit": "Envoyer"
+            "input_email_errors": {
+                "empty": "L'email est un champ obligatoire",
+                "format": "Le format de l'email est : exemple@email.com",
+                "not_unique": "Cette adresse email est déjà utilisée. Connectez-vous ou utilisez un autre email."
+            },
+            "input_textarea_label": "Message",
+            "input_textarea_placeholder": "Message",
+            "input_textarea_errors": {
+                "empty": "Le message doit comporter un contenu",
+                "max_length": "Le message ne doit pas excéder la limite de 500 caractères maximum"
+            },
+            "button_submit_message": "Envoyer"
         }
     },
     "SignupPage": {

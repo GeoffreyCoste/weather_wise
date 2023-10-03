@@ -7,7 +7,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useTranslations } from 'next-intl';
 
-async function resetPassword(payload) {
+type PayloadType = {
+  newPassword: string;
+  newPasswordConfirm: string;
+}
+
+async function resetPassword(payload: PayloadType) {
     try {
         const response = await fetch('/api/reset-password', {
             method: 'POST',
@@ -59,7 +64,7 @@ export const NewPasswordForm = () => {
 
     const onResetPassword = async (data: Inputs) => {
 
-        const response = await resetPassword(payload);
+        const response = await resetPassword(data);
 
         if (response.error) {
           setError(response.error);
@@ -115,7 +120,7 @@ export const NewPasswordForm = () => {
       });
 
     return (
-        <div className="relative flex w-full flex-col rounded-lg px-4 py-14 sm:w-10/12 sm:py-24 md:w-3/4 md:py-32 lg:w-3/4 2xl:w-3/5 bg-white dark:bg-blue-950">
+        <div id="container_form_new_password" className="relative flex w-full flex-col rounded-lg px-4 py-14 sm:w-10/12 sm:py-24 md:w-3/4 md:py-32 lg:w-3/4 2xl:w-3/5 bg-white dark:bg-blue-950 z-50">
             <form className="w-full sm:w-3/4 mx-auto" onSubmit={handleSubmit(validateFormData)}>
                 <h1 className="text-center font-black text-blue-700 dark:text-white text-3xl mb-4">{t('form.title')}</h1>
                 <p className="text-center font-medium text-blue-700 dark:text-white text-lg mb-8">{t('form.baseline')}</p>
@@ -173,7 +178,7 @@ export const NewPasswordForm = () => {
                         placeholder={t('form.input_new_password_confirm_placeholder')}
                         {...register("newPasswordConfirm")}
                     />
-                    <div className="w-full h-5">
+                    <div className="w-full min-h-[20px]">
                       {errors.newPasswordConfirm?.message && (
                         <p className="text-xs text-rose-500 font-semibold pl-2">{errors.newPasswordConfirm.message}</p>
                       )}

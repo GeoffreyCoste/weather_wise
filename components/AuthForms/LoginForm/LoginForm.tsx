@@ -82,7 +82,7 @@ export const LoginForm = () => {
   }, [status, router]);
 
   return (
-    <div className="relative flex w-full flex-col rounded-lg px-4 py-14 sm:w-10/12 sm:py-24 md:w-3/4 md:py-32 lg:w-3/4 2xl:w-3/5 bg-white dark:bg-blue-950">
+    <div id="container_form_signin" className="relative flex w-full flex-col rounded-lg px-4 py-14 sm:w-10/12 sm:py-24 md:w-3/4 md:py-32 lg:w-3/4 2xl:w-3/5 bg-white dark:bg-blue-950">
         {message && (<div className="absolute -top-16 left-1/2 -translate-x-1/2 mb-4 bg-green-100 border border-green-400 text-sm font-semibold text-green-700 px-4 py-3 rounded-lg">{ t(message) }</div>)}
         <form className="w-full sm:w-2/3 sm:mx-auto lg:w-1/2" onSubmit={handleSubmit(validateFormData)}>
           <h1 className="text-center font-black text-blue-700 dark:text-white text-3xl mb-4">{t('form.title')}</h1>

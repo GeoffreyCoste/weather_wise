@@ -8,7 +8,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useTranslations } from 'next-intl';
 
-async function verifyToken(payload) {
+type PayloadType = {
+    token: string;
+  }
+
+async function verifyToken(payload: PayloadType) {
     try {
         const response = await fetch('/api/verify-token', { 
             method: 'POST', 
@@ -68,7 +72,7 @@ export const EnterTokenForm = () => {
     const token = watch('token');
 
     return (
-        <div className="relative flex w-full flex-col rounded-lg px-4 py-14 sm:w-10/12 sm:py-24 md:w-3/4 md:py-32 lg:w-3/4 2xl:w-3/5 bg-white dark:bg-blue-950">
+        <div id="container_form_enter_token" className="relative flex w-full flex-col rounded-lg px-4 py-14 sm:w-10/12 sm:py-24 md:w-3/4 md:py-32 lg:w-3/4 2xl:w-3/5 bg-white dark:bg-blue-950 z-50">
             <form className="w-full sm:w-3/4 mx-auto" onSubmit={handleSubmit(validateFormData)}>
                 <h1 className="text-center font-black text-blue-700 dark:text-white text-3xl mb-4">{t('form.title')}</h1>
                 <p className="text-center font-medium text-blue-700 dark:text-white text-lg mb-8">{t('form.baseline')}&nbsp;{ preference === "email" ? "email" : "SMS" }.</p>
@@ -93,7 +97,7 @@ export const EnterTokenForm = () => {
                         id="token" 
                         {...register('token')}
                     />
-                    <div className="w-full h-5">
+                    <div className="w-full min-h-[20px]">
                       {errors.token?.message && (
                         <p className="text-xs text-rose-500 font-semibold pl-2">{errors.token.message}</p>
                       )}

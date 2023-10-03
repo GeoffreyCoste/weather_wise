@@ -141,19 +141,47 @@
         }
     },
     "ContactPage": {
-        "title": "<h1>Contact us</h1>",
         "form": {
-            "input_name_placeholder": "Name",
-            "input_email_placeholder": "Email address",
-            "input_message_placeholder": "Message",
-            "button_submit": "Send"
+            "title": "Let's talk about rain and shine...",
+            "baseline": "And any questions you might have!",
+            "rule": "(All fields are required.)",
+            "input_firstname_label": "First Name",
+            "input_firstname_placeholder": "First Name",
+            "input_firstname_errors": {
+                "empty": "The First Name field is required",
+                "min_length": "First Name should include at least 2 characters",
+                "max_length": "First Name should not exceed 50 characters",
+                "only_alphabet": "Numbers and special characters are not allowed"
+            },
+            "input_lastname_label": "Last Name",
+            "input_lastname_placeholder": "Last Name",
+            "input_lastname_errors": {
+                "empty": "The Last Name field is required",
+                "min_length": "Last Name should include at least 2 characters",
+                "max_length": "Last Name should not exceed 50 characters",
+                "only_alphabet": "Numbers and special characters are not allowed"
+            },
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "empty": "The Email field is mandatory",
+                "format": "Email format: example@email.com",
+                "not_unique": "This email address is already in use. Log in or use another email."
+            },
+            "input_textarea_label": "Message",
+            "input_textarea_placeholder": "Message",
+            "input_textarea_errors": {
+                "empty": "The Message must have content",
+                "max_length": "Message should not exceed 500 characters"
+            },
+            "button_submit_message": "Send"
         }
     },
     "SignupPage": {
         "form": {
             "title": "Welcome!",
             "baseline": "Create your Account",
-            "rule": "All fields are required.",
+            "rule": "(All fields are required.)",
             "input_firstname_label": "First Name",
             "input_firstname_placeholder": "First Name",
             "input_firstname_errors": {

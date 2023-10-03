@@ -8,7 +8,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useTranslations } from 'next-intl';
 
-async function sendToken(payload) {
+type PayloadType = {
+    email?: string;
+    mobile?: string;
+}
+
+async function sendToken(payload: PayloadType) {
     try {
         const response = await fetch('/api/send-token', {
             method: 'POST',
@@ -70,7 +75,7 @@ export const ForgotPasswordForm = () => {
     const mobile = watch('mobile');
 
     return (
-        <div className="relative flex w-full flex-col rounded-lg px-4 py-14 sm:w-10/12 sm:py-24 md:w-3/4 md:py-32 lg:w-3/4 2xl:w-3/5 bg-white dark:bg-blue-950">
+        <div id="container_form_forgot_paswword" className="relative flex w-full flex-col rounded-lg px-4 py-14 sm:w-10/12 sm:py-24 md:w-3/4 md:py-32 lg:w-3/4 2xl:w-3/5 bg-white dark:bg-blue-950 z-50">
             <form className="w-full sm:w-3/4 sm:mx-auto" onSubmit={handleSubmit(validateFormData)}>
                 <h1 className="text-center font-black text-blue-700 dark:text-white text-3xl mb-4">{t('form.title')}</h1>
                 {t.rich("form.baseline.items", {
@@ -97,7 +102,7 @@ export const ForgotPasswordForm = () => {
                         placeholder={t('form.input_email_placeholder')}
                         {...register('email')}
                     />
-                    <div className="w-full h-5">
+                    <div className="w-full min-h-[20px]">
                       {errors.email?.message && (
                         <p className="text-xs text-rose-500 font-semibold pl-2">{errors.email.message}</p>
                       )}
@@ -126,7 +131,7 @@ export const ForgotPasswordForm = () => {
                         disabled
                         {...register('mobile')}
                     />
-                    <div className="w-full h-5">
+                    <div className="w-full min-h-[20px]">
                         {errors.mobile?.message && (
                           <p className="text-xs text-rose-500 font-semibold pl-2">{errors.mobile.message}</p>
                         )}
