@@ -51,16 +51,34 @@ export const SideMenu = ({themeCookie, temperatureCookie}: Props) => {
     let root = document.documentElement; // Targeting <html> tag
     let buttonOpenModal = document.querySelector('#button-open-modal');
     let buttonLogo = document.querySelector('#header-button-logo');
+    let signupForm = document.querySelector('#container_form_signup');
+    let loginForm = document.querySelector('#container_form_login');
+    let contactForm = document.querySelector('#container_form_contact');
+    let forgotPasswordForm = document.querySelector('#container_form_forgot_password');
+    let enterTokenForm = document.querySelector('#container_form_enter_token');
+    let newPasswordForm = document.querySelector('#container_form_new_password');
 
     if (isMenuOpen) {
       root.classList.add('fixed', 'overflow-y-scroll', 'w-full');
       buttonOpenModal?.setAttribute("style", "z-index:30");
       buttonLogo?.setAttribute("style", "z-index:30");
+      signupForm?.setAttribute("style", "z-index:30");
+      loginForm?.setAttribute("style", "z-index:30");
+      contactForm?.setAttribute("style", "z-index:30");
+      forgotPasswordForm?.setAttribute("style", "z-index:30");
+      enterTokenForm?.setAttribute("style", "z-index:30");
+      newPasswordForm?.setAttribute("style", "z-index:30");
     } else {
       root.classList.remove('fixed', 'overflow-y-scroll', 'w-full');
       setTimeout(() => {
         buttonOpenModal?.removeAttribute("style");
         buttonLogo?.removeAttribute("style");
+        signupForm?.removeAttribute("style");
+        loginForm?.removeAttribute("style");
+        contactForm?.removeAttribute("style");
+        forgotPasswordForm?.removeAttribute("style");
+        enterTokenForm?.removeAttribute("style");
+        newPasswordForm?.removeAttribute("style");
       }, 500);
     }
   }, [isMenuOpen]);
