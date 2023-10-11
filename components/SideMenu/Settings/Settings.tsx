@@ -21,9 +21,10 @@ const variants = {
 type Props = {
   themeCookie: string;
   temperatureCookie: string;
+  toggleOpen: () => void;
 };
 
-const Settings = ({themeCookie, temperatureCookie}: Props) => {
+const Settings = ({themeCookie, temperatureCookie, toggleOpen}: Props) => {
   const t = useTranslations('LocaleLayout');
 
   const {themeState} = useTheme();
@@ -37,8 +38,16 @@ const Settings = ({themeCookie, temperatureCookie}: Props) => {
       >
         {t('side_menu.title_connection')}
       </h3>
-      <ButtonLogin buttonIdPrefix="sidemenu-" styleVariations="w-full" />
-      <ButtonSignup buttonIdPrefix="sidemenu-" styleVariations="w-full text-blue-700 border border-2 border-blue-700 dark:text-sky-400 dark:border-sky-400 mt-4" />
+      <ButtonLogin 
+        buttonIdPrefix="sidemenu-" 
+        styleVariations="w-full" 
+        onClick={toggleOpen} 
+      />
+      <ButtonSignup 
+        buttonIdPrefix="sidemenu-" 
+        styleVariations="w-full text-blue-700 border border-2 border-blue-700 dark:text-sky-400 dark:border-sky-400 mt-4" 
+        onClick={toggleOpen} 
+      />
       <h3
         className={`mb-8 mt-12 font-bold ${
           themeState.theme === 'light' ? 'text-blue-700' : 'text-white'

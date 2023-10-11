@@ -28,7 +28,8 @@
         "modal": {
             "title": "Rechercher un lieu",
             "select_placeholder": "Recherche ...",
-            "default_option_label": "Lieu recherché à préciser"
+            "default_option_label": "Lieu recherché à préciser",
+            "options_noOptionsMessage": "Ville non trouvée"
         },
         "cards":{
             "today_weather": {
@@ -91,7 +92,7 @@
         "transition_paragraph": "ou découvrez tout simplement",
         "sub_title": "quel temps fait-il chez vous ?",
         "button_geolocation": "Géolocalisez-moi",
-        "button_geolocation_refresh": "Actualiser ma géolocalisation"
+        "button_geolocation_refresh": "Actualiser"
     },
     "CityPage": {
         "title": "<h1>Nos prévisions</h1>"
@@ -141,19 +142,10 @@
         }
     },
     "ContactPage": {
-        "title": "<h1>Nous contacter</h1>",
         "form": {
-            "input_name_placeholder": "Nom",
-            "input_email_placeholder": "Email",
-            "input_message_placeholder": "Message",
-            "button_submit": "Envoyer"
-        }
-    },
-    "SignupPage": {
-        "form": {
-            "title": "Bienvenue !",
-            "baseline": "Créez votre compte",
-            "rule": "<p>Les champs précédés de <span>*</span> sont obligatoires</p>",
+            "title": "Parlons de la pluie et du beau temps ...",
+            "baseline": "Et de toute question que vous pourriez vous poser !",
+            "rule": "(Tous les champs sont obligatoires.)",
             "input_firstname_label": "Prénom",
             "input_firstname_placeholder": "Prénom",
             "input_firstname_errors": {
@@ -170,6 +162,51 @@
                 "max_length": "Le nom ne doit pas excéder la limite de 50 caractères maximum",
                 "only_alphabet": "Les chiffres et caractères spéciaux ne sont pas autorisés"
             },
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "empty": "L'email est un champ obligatoire",
+                "format": "Le format de l'email est : exemple@email.com",
+                "not_unique": "Cette adresse email est déjà utilisée. Connectez-vous ou utilisez un autre email."
+            },
+            "input_textarea_label": "Message",
+            "input_textarea_placeholder": "Message",
+            "input_textarea_errors": {
+                "empty": "Le message doit comporter un contenu",
+                "max_length": "Le message ne doit pas excéder la limite de 500 caractères maximum"
+            },
+            "button_submit_message": "Envoyer"
+        }
+    },
+    "SignupPage": {
+        "form": {
+            "title": "Bienvenue !",
+            "baseline": "Créez votre compte",
+            "rule": "(Tous les champs sont obligatoires.)",
+            "input_firstname_label": "Prénom",
+            "input_firstname_placeholder": "Prénom",
+            "input_firstname_errors": {
+                "empty": "Le prénom est un champ obligatoire",
+                "min_length": "Le prénom doit comporter au moins 2 caractères",
+                "max_length": "Le prénom ne doit pas excéder la limite de 50 caractères maximum",
+                "only_alphabet": "Les chiffres et caractères spéciaux ne sont pas autorisés"
+            },
+            "input_lastname_label": "Nom",
+            "input_lastname_placeholder": "Nom",
+            "input_lastname_errors": {
+                "empty": "Le nom est un champ obligatoire",
+                "min_length": "Le nom doit comporter au moins 2 caractères",
+                "max_length": "Le nom ne doit pas excéder la limite de 50 caractères maximum",
+                "only_alphabet": "Les chiffres et caractères spéciaux ne sont pas autorisés"
+            },
+            "input_location_label": "Domicile",
+            "input_location_placeholder": "Ville",
+            "input_location_default_option_label": "Lieu recherché à préciser",
+            "input_location_errors": {
+                "empty": "Le domicile est un champ obligatoire",
+                "cityNotFound": "Ville non trouvée"
+            },
+
             "input_email_label": "Email",
             "input_email_placeholder": "Email",
             "input_email_errors": {
@@ -197,12 +234,12 @@
         "form": {
             "title": "Ravis de vous revoir !",
             "baseline": "Connectez-vous à votre compte",
-            "rule": "<p>Les champs précédés de <span>*</span> sont obligatoires</p>",
+            "rule": "(Tous les champs sont obligatoires.)",
             "input_email_label": "Email",
             "input_email_placeholder": "Email",
             "input_email_errors": {
                 "empty": "L'email est un champ obligatoire",
-                "format": "Le format de l'email est : exemple@email.com"
+                "format": "Le format attendu est : exemple@email.com"
             },
             "forgot_password_link": "Mot de passe oublié ?",
             "input_password_label": "Mot de passe",
@@ -216,14 +253,22 @@
             "text": "Vous ne disposez pas encore d'un compte ?",
             "link": "Créez-en un dès à présent."
         },
-        "success_reset_password": "Votre mot de passe a bien été modifié"
+        "success_reset_password": "Votre mot de passe a bien été modifié 👍",
+        "error_reset_password": "Le mot de passe et la confirmation doivent concorder"
     },
     "ForgotPasswordPage": {
         "form": {
             "title": "Réinitialiser mot de passe",
-            "baseline": "Confirmez l'adresse email fournie pour la création de votre compte afin d'obtenir des instructions pour réinitialiser votre mot de passe",
+            "baseline": {
+                "items": "<item>Vous avez perdu votre mot de passe ?</item><item>Créez-en un nouveau.</item>"
+            },
+            "rule": "Renseignez votre email de connexion afin de recevoir un code de confirmation pour réinitialiser votre mot de passe. La réception de ce code par SMS n'est possible que pour les utilisateurs dont le numéro de mobile a été préalablement vérifié.",
             "input_email_label": "Email",
             "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "format": "Le format attendu est : exemple@email.com"
+            },
+            "input_separation_text": "ou",
             "input_mobile_label": "Mobile",
             "input_mobile_placeholder": "Mobile",
             "button_submit_reset": "Réinitialiser"
@@ -233,22 +278,39 @@
     },
     "EnterTokenPage": {
         "form": {
-            "title": "Entrer code de vérification",
-            "baseline": "Confirmez ci-dessous le code de vérification que nous vous avons envoyé par",
-            "input_token_label": "Code de vérification",
-            "input_email_placeholder": "Code de vérification",
+            "title": "Saisir code de confirmation",
+            "baseline": "Nous venons de vous l'envoyer par",
+            "rule": "Renseignez le code de confirmation que nous vous avons envoyé par",
+            "input_token_label": "Code de confirmation",
+            "input_token_placeholder": "Code de confirmation",
+            "input_token_errors": {
+                "empty": "Le code de confirmation est un champ obligatoire",
+                "format": "Le code de confirmation ne respecte pas le format attendu"
+            },
             "button_submit_token": "Soumettre"
         },
-        "error_invalid_token": "Code de vérification invalide"
+        "forgot_password_link": "Vous n'avez pas reçu le code ?",
+        "error_invalid_token": "Code de confirmation invalide"
     },
     "NewPasswordPage": {
         "form": {
             "title": "Changer mot de passe",
-            "baseline": "Validez ci-dessous votre nouveau mot de passe",
+            "baseline": "Renseignez votre nouveau mot de passe",
             "input_new_password_label": "Nouveau mot de passe",
             "input_new_password_placeholder": "Nouveau mot de passe",
+            "input_new_password_errors": {
+                "empty": "Le mot de passe est un champ obligatoire",
+                "combos": {
+                    "intro": "Votre mot de passe doit comporter :",
+                    "items": "<item>Au moins 8 caractères</item><item>Des majuscules et des minuscules</item><item>Au moins 1 nombre</item><item>Au moins 1 caractère spécial (Ex : !?@#$€&%*^)</item>"
+                }
+            },
             "input_new_password_confirm_label": "Confirmer nouveau mot de passe",
             "input_new_password_confirm_placeholder": "Confirmation nouveau mot de passe",
+            "input_new_password_confirm_errors": {
+                "empty": "La confirmation du mot de passe est un champ obligatoire",
+                "noMatch": "Le mot de passe et la confirmation ne concordent pas"
+            },
             "button_submit_change": "Enregistrer le changement"
         }
     }
