@@ -2,6 +2,10 @@ import React from 'react';
 import {LazyMotion, m, domAnimation} from 'framer-motion';
 import { NavItem } from './NavItem/NavItem';
 
+type Props = {
+  toggleOpen: () => void;
+};
+
 const itemIds = [0, 1, 2];
 const itemList = ['about', 'terms', 'contact'];
 
@@ -14,7 +18,7 @@ const variants = {
   }
 };
 
-export const Navigation = () => (
+export const Navigation = ({toggleOpen}: Props) => (
   <LazyMotion features={domAnimation}>
     <m.ul 
       id="mobile-nav"
@@ -27,6 +31,7 @@ export const Navigation = () => (
         <NavItem
           item={itemList[i]}
           key={`${i}-5358a2fd-dddb-4347-b9d6-2cf3b37769e6`}
+          toggleOpen={toggleOpen}
         />
       ))}
     </m.ul>
