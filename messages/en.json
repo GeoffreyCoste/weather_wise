@@ -28,7 +28,8 @@
         "modal": {
             "title": "Search location",
             "select_placeholder": "Search...",
-            "default_option_label": "Location searched to be specified"
+            "default_option_label": "Location searched to be specified",
+            "options_noOptionsMessage": "City not found"
         },
         "cards":{
             "today_weather": {
@@ -91,7 +92,7 @@
         "transition_paragraph": "or just find out",
         "sub_title": "what's your location's weather?",
         "button_geolocation": "Geolocate me",
-        "button_geolocation_refresh": "Refresh geolocation"
+        "button_geolocation_refresh": "Refresh"
     },
     "CityPage": {
         "title": "<h1>Our forecasts</h1>"
@@ -141,19 +142,10 @@
         }
     },
     "ContactPage": {
-        "title": "<h1>Contact us</h1>",
         "form": {
-            "input_name_placeholder": "Name",
-            "input_email_placeholder": "Email address",
-            "input_message_placeholder": "Message",
-            "button_submit": "Send"
-        }
-    },
-    "SignupPage": {
-        "form": {
-            "title": "Welcome!",
-            "baseline": "Create your Account",
-            "rule": "<p>Fields preceded by <span>&#42;</span> are required</p>",
+            "title": "Let's talk about rain and shine...",
+            "baseline": "And any questions you might have!",
+            "rule": "(All fields are required.)",
             "input_firstname_label": "First Name",
             "input_firstname_placeholder": "First Name",
             "input_firstname_errors": {
@@ -170,6 +162,51 @@
                 "max_length": "Last Name should not exceed 50 characters",
                 "only_alphabet": "Numbers and special characters are not allowed"
             },
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "empty": "The Email field is mandatory",
+                "format": "Email format: example@email.com",
+                "not_unique": "This email address is already in use. Log in or use another email."
+            },
+            "input_textarea_label": "Message",
+            "input_textarea_placeholder": "Message",
+            "input_textarea_errors": {
+                "empty": "The Message must have content",
+                "max_length": "Message should not exceed 500 characters"
+            },
+            "button_submit_message": "Send"
+        }
+    },
+    "SignupPage": {
+        "form": {
+            "title": "Welcome!",
+            "baseline": "Create your Account",
+            "rule": "(All fields are required.)",
+            "input_firstname_label": "First Name",
+            "input_firstname_placeholder": "First Name",
+            "input_firstname_errors": {
+                "empty": "The First Name field is required",
+                "min_length": "First Name should include at least 2 characters",
+                "max_length": "First Name should not exceed 50 characters",
+                "only_alphabet": "Numbers and special characters are not allowed"
+            },
+            "input_lastname_label": "Last Name",
+            "input_lastname_placeholder": "Last Name",
+            "input_lastname_errors": {
+                "empty": "The Last Name field is required",
+                "min_length": "Last Name should include at least 2 characters",
+                "max_length": "Last Name should not exceed 50 characters",
+                "only_alphabet": "Numbers and special characters are not allowed"
+            },
+            "input_location_label": "Residence",
+            "input_location_placeholder": "City",
+            "input_location_default_option_label": "Location searched to be specified",
+            "input_location_errors": {
+                "empty": "The Residence field is required",
+                "cityNotFound": "City not found"
+            },
+
             "input_email_label": "Email",
             "input_email_placeholder": "Email",
             "input_email_errors": {
@@ -197,12 +234,14 @@
         "form": {
             "title": "Welcome back!",
             "baseline": "Log In to your Account",
+            "rule": "(All fields are required.)",
             "input_email_label": "Email",
             "input_email_placeholder": "Email",
             "input_email_errors": {
                 "empty": "The Email field is mandatory",
                 "format": "Email format: example@email.com"
             },
+            "forgot_password_link": "Forgot password?",
             "input_password_label": "Password",
             "input_password_placeholder": "Password",
             "input_password_errors": {
@@ -213,6 +252,59 @@
         "login_link": {
             "text": "You don't have an account?",
             "link": "Sign Up"
+        },
+        "success_reset_password": "Your password has been successfully updated 👍",
+        "error_reset_password": "Passwords must match"
+    },
+    "ForgotPasswordPage": {
+        "form": {
+            "title": "Reset password",
+            "baseline": {
+                "items": "<item>You forgot your password?</item><item>Create a new one.</item>"
+            },
+            "rule": "Please enter your login email to receive a verification code to reset your password. The receipt of the aforementioned code by SMS is only available to users whose mobile phone number has been previously verified.",
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "format": "Email format: example@email.com"
+            },
+            "input_separation_text": "or",
+            "input_mobile_label": "Mobile Phone",
+            "input_mobile_placeholder": "Mobile Phone",
+            "button_submit_reset": "Reset"
+        },
+        "login_link": "Return to Login Page",
+        "error_invalid_value": "Invalid email address or phone number"
+    },
+    "EnterTokenPage": {
+        "form": {
+            "title": "Enter confirmation code",
+            "baseline": "We have just sent it to you by",
+            "rule": "Please enter the confirmation code that we have sent you by", 
+            "input_token_label": "Confirmation code",
+            "input_token_placeholder": "Confirmation code",
+            "input_token_errors": {
+                "empty": "The Confirmation Code is required",
+                "format": "Confirmation Code do not match its expected format"
+            },
+            "button_submit_token": "Submit"
+        },
+        "forgot_password_link": "You did not receive the code?",
+        "error_invalid_token": "Invalid verification code"
+    },
+    "NewPasswordPage": {
+        "form": {
+            "title": "Change password",
+            "baseline": "Please enter your new password",
+            "input_new_password_label": "New password",
+            "input_new_password_placeholder": "New password",
+            "input_new_password_confirm_label": "Confirm new password",
+            "input_new_password_confirm_placeholder": "Confirm new password",
+            "input_new_password_confirm_errors": {
+                "empty": "The Confirm Password field is required",
+                "noMatch": "Passwords don't match"
+            },
+            "button_submit_change": "Save change"
         }
     }
 }

@@ -1,12 +1,12 @@
 import { PageLayout } from '@/components/PageLayout/PageLayout';
-import { ContactPageContent } from '@/components/ContactPageContent/ContactPageContent';
+import { ContactForm } from '@/components/ContactForm/ContactForm';
 
 
 export default function ContactPage() {
 
   return (
     <PageLayout>
-        <ContactPageContent />
+        <ContactForm />
     </PageLayout>
   );
 }
