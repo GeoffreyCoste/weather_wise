@@ -20,6 +20,7 @@ export async function POST(request: Request) {
         data: {
           firstName: body.firstName,
           lastName: body.lastName,
+          location: body.location,
           email: body.email,
           password: await bcrypt.hash(body.password, 10),
         },
@@ -31,6 +32,7 @@ export async function POST(request: Request) {
         profile: {
           firstName: user.firstName,
           lastName: user.lastName,
+          location: user.location,
           email: user.email,
           // Courier supports storing custom JSON data for Profiles
           custom: {

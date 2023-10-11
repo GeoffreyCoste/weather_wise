@@ -104,7 +104,7 @@ const SelectAutocomplete = ({closeModal}: Props) => {
       defaultOptions={defaultOptions}
       loadOptions={getOptions}
       placeholder={t('modal.select_placeholder')}
-      noOptionsMessage={() => 'City not found'}
+      noOptionsMessage={() => t('modal.options_noOptionsMessage')}
       onChange={(value) => getCityPage(value)}
       onInputChange={(value) => setQuery(value)}
       styles={{
