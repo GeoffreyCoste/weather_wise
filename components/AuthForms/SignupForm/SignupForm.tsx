@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { signIn, useSession } from 'next-auth/react'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useTranslations } from 'next-intl'
@@ -11,6 +11,7 @@ import { useTheme } from '@/hooks/useTheme'
 import { EyeIcon } from '../EyeIcon/EyeIcon'
 import { EyeSlashIcon } from '../EyeSlashIcon/EyeSlashIcon'
 import Link from 'next/link'
+import SelectInput from './SelectInput/SelectInput'
 
 export const SignupForm = () => {
   
@@ -44,6 +45,9 @@ export const SignupForm = () => {
       .min(2, {message: t('form.input_lastname_errors.min_length')})
       .max(50, {message: t('form.input_lastname_errors.max_length')})
       .refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z]+$/.test(value), {message: t('form.input_lastname_errors.only_alphabet')}),
+    location: z
+      .string()
+      .nonempty({message: t('form.input_location_errors.empty')}),
     email: z
       .string()
       .email({message: t('form.input_email_errors.format')})
@@ -56,7 +60,7 @@ export const SignupForm = () => {
       })
   });
 
-  const { register, handleSubmit, watch, setError, formState: { errors }} = useForm<Inputs>({
+  const { control, register, handleSubmit, watch, setError, formState: { errors }} = useForm<Inputs>({
     mode: "onChange",
     resolver: zodResolver(SignupFormDataSchema)
   });
@@ -64,6 +68,7 @@ export const SignupForm = () => {
   const onSubmit = async ({
     firstName,
     lastName,
+    location,
     email,
     password
 }: Inputs ) => {
@@ -73,6 +78,7 @@ export const SignupForm = () => {
               body: JSON.stringify({
                   firstName: firstName,
                   lastName: lastName,
+                  location: location,
                   email: email,
                   password: password,
               })
@@ -156,7 +162,7 @@ export const SignupForm = () => {
                 <label htmlFor="signup-input-firstname" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_firstname_label')}</label>
                 <input
                   className={`
-                      w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal 
+                      w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal
                       dark:text-white dark:bg-[#0F1A3E] border 
                       disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                       ${!firstName && !errors.firstName?.message
@@ -181,7 +187,7 @@ export const SignupForm = () => {
                 <label htmlFor="signup-input-lastname" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_lastname_label')}</label>
                 <input
                   className={`
-                  w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal 
+                  w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal
                   dark:text-white dark:bg-[#0F1A3E] border 
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                   ${!lastName && !errors.lastName?.message
@@ -204,10 +210,25 @@ export const SignupForm = () => {
                 </div>
             </div>
             <div>
+              <label htmlFor="signup-input-lastname" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_location_label')}</label>
+              <Controller 
+                name="location"
+                control={control}
+                render={({field, fieldState}) => (
+                  <SelectInput value={field.value} onChange={field.onChange} error={fieldState.error} />
+                )}
+              />
+              <div className="w-full min-h-[20px]">
+                {errors.location?.message && (
+                  <p className="text-xs text-rose-500 font-semibold pl-2">{errors.location.message}</p>
+                )}
+              </div>
+            </div>
+            <div>
               <label htmlFor="signup-input-email" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_email_label')}</label>
               <input
                 className={`
-                    w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal 
+                    w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal
                     dark:text-white dark:bg-[#0F1A3E] border 
                     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                     ${!email && !errors.email?.message
@@ -233,7 +254,7 @@ export const SignupForm = () => {
               <label htmlFor="signup-input-password" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_password_label')}</label>
               <input
                 className={`
-                  w-full rounded-lg mb-1 p-3 pr-12 text-sm font-medium placeholder:font-normal 
+                  w-full rounded-lg mb-1 p-3 pr-12 text-sm font-medium placeholder:font-normal
                   dark:text-white dark:bg-[#0F1A3E] border 
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                   ${!password && !errors.password?.message

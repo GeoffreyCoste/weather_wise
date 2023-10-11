@@ -129,7 +129,7 @@ export const NewPasswordForm = () => {
                     <label htmlFor="new_password" className="ml-3 text-sm font-semibold text-gray-800 dark:text-white">{t('form.input_new_password_label')}</label>
                     <input 
                         className={`
-                            w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal 
+                            w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal
                             dark:text-white dark:bg-[#0F1A3E] border 
                             disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                             ${!newPassword && !errors.newPassword?.message && !error
@@ -163,7 +163,7 @@ export const NewPasswordForm = () => {
                     <label htmlFor="new_password_confirm" className="ml-3 text-sm font-semibold text-gray-800 dark:text-white">{t('form.input_new_password_confirm_label')}</label>
                     <input 
                         className={`
-                            w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal 
+                            w-full rounded-lg mb-1 p-3 text-sm font-medium placeholder:font-normal
                             dark:text-white dark:bg-[#0F1A3E] border 
                             disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                             ${!newPasswordConfirm || error

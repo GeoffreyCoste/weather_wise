@@ -28,7 +28,8 @@
         "modal": {
             "title": "Search location",
             "select_placeholder": "Search...",
-            "default_option_label": "Location searched to be specified"
+            "default_option_label": "Location searched to be specified",
+            "options_noOptionsMessage": "City not found"
         },
         "cards":{
             "today_weather": {
@@ -198,6 +199,14 @@
                 "max_length": "Last Name should not exceed 50 characters",
                 "only_alphabet": "Numbers and special characters are not allowed"
             },
+            "input_location_label": "Residence",
+            "input_location_placeholder": "City",
+            "input_location_default_option_label": "Location searched to be specified",
+            "input_location_errors": {
+                "empty": "The Residence field is required",
+                "cityNotFound": "City not found"
+            },
+
             "input_email_label": "Email",
             "input_email_placeholder": "Email",
             "input_email_errors": {
