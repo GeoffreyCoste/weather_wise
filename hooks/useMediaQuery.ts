@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react'
 
 export const useMediaQuery = (query: string): boolean => {
     const getMatches = (query: string): boolean => {

@@ -1,9 +1,11 @@
 import {withAuth} from 'next-auth/middleware';
-import createIntlMiddleware from 'next-intl/middleware';
-import {NextRequest} from 'next/server';
+import createIntlMiddleware from 'next-intl/middleware'
+import {NextRequest} from 'next/server'
+import { notFound } from 'next/navigation';
 
 const locales = ['fr', 'en'];
-const publicPages = ['/', '/login', '/signup', '/forgot-password', '/enter-token', '/new-password', '/about', '/terms', '/contact', '/city/(.*)'];
+const publicPages = ['/login', '/signup', '/forgot-password', '/enter-token', '/new-password', '/about', '/terms', '/contact', '/city/(.*)'];
+const protectedPages = ['/user/(.*)']
 
 const intlMiddleware = createIntlMiddleware({
   locales,
@@ -34,10 +36,18 @@ export default function middleware(req: NextRequest) {
   );
   const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
 
+  const protectedPathnameRegex = RegExp(
+    `^(/(${locales.join('|')}))?(${protectedPages.join('|')})?/?$`,
+    'i'
+  );
+  const isProtectedPage = protectedPathnameRegex.test(req.nextUrl.pathname);
+
   if (isPublicPage) {
     return intlMiddleware(req);
-  } else {
+  } if (isProtectedPage) {
     return (authMiddleware as any)(req);
+  } else {
+    return intlMiddleware(req);
   }
 }
 

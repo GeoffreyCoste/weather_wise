@@ -6,7 +6,7 @@ import { FooterTopBackground } from "./FooterTopBackground/FooterTopBackground"
 export const Footer = () => {
 
   return (
-    <footer className="mt-20 w-full pb-10">
+    <footer className="mt-20 w-full pb-10 overflow-hidden">
         <div className="relative flex w-full h-72 max-h-fit">
           <FooterTopBackground />
         </div>

@@ -3,7 +3,7 @@ import {
     useEffect,
     useLayoutEffect,
     useRef
-  } from 'react';
+  } from 'react'
   
   export const useKeyPress = (
     keys: string[],

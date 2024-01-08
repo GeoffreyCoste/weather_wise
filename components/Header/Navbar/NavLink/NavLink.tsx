@@ -1,9 +1,9 @@
 'use client'
 
-import { ComponentProps } from "react";
+import { ComponentProps } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation"
+import { useLocale, useTranslations } from "next-intl"
 
 type Props = Omit<ComponentProps<typeof Link>, 'href'> & {
   href: string;
@@ -11,8 +11,9 @@ type Props = Omit<ComponentProps<typeof Link>, 'href'> & {
 };
 
 export const NavLink = ({href, title, ...rest}: Props) => {
+  const locale = useLocale();
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname === `${locale === 'en' ? '/en' : ''}${href}`;
   
   const t = useTranslations('LocaleLayout')
 

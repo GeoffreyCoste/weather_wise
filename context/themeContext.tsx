@@ -1,12 +1,12 @@
 'use client'
 
-import {createContext, useReducer, useMemo, PropsWithChildren} from 'react';
+import {createContext, useReducer, useMemo, PropsWithChildren} from 'react'
 import {
   ThemeReducer,
   initialState,
   ThemeState,
   ThemeActionsType
-} from '@/reducers/themeReducer';
+} from '@/reducers/themeReducer'
 
 export type Theme = 'light' | 'dark';
 

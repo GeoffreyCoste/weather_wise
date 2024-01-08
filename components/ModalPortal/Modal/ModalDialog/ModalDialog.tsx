@@ -1,11 +1,11 @@
 'use client'
 
-import { PropsWithChildren, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useTranslations } from "next-intl";
-import { useModal } from "@/hooks/useModal";
-import { useClickOutside } from "@/hooks/useClickOutside";
-import { ButtonCloseModal } from "@/components/ButtonCloseModal/ButtonCloseModal";
+import { PropsWithChildren, useRef } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { useTranslations } from "next-intl"
+import { useModal } from "@/hooks/useModal"
+import { useClickOutside } from "@/hooks/useClickOutside"
+import { ButtonCloseModal } from "@/components/ButtonCloseModal/ButtonCloseModal"
 
 export const ModalDialog = ({children}: PropsWithChildren) => {
 

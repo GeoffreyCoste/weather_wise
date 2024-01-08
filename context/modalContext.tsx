@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, createContext, PropsWithChildren } from "react";
+import { useState, createContext, PropsWithChildren } from "react"
 
 export type ModalContextInterface = {
     isOpen: boolean;

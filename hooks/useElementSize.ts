@@ -1,6 +1,6 @@
-import {useState, useCallback} from 'react';
-import {useEventListener} from './useEventListener';
-import {useIsomorphicLayoutEffect} from './useIsomorphicLayoutEffect';
+import {useState, useCallback} from 'react'
+import {useEventListener} from './useEventListener'
+import {useIsomorphicLayoutEffect} from './useIsomorphicLayoutEffect'
 
 interface Size {
   width: number;

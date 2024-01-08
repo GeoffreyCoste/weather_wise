@@ -10,7 +10,7 @@ export const FooterTopBackground = () => {
     const {themeState} = useTheme();
     return (
         <Image
-            className="object-fill scale-[4] sm:object-cover sm:scale-100"
+            className="object-fill scale-[4] sm:object-cover sm:scale-100 z-10"
             src={
               themeState.theme === 'light' ? CloudsBlue : CloudsLight
             }

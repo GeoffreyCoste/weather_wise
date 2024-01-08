@@ -6,5 +6,6 @@ export interface IntlMessages extends Messages {
     about: 'About';
     services: 'Services';
     contact: 'Contact';
+    dashboard?: 'Dashboard'
   };
 }

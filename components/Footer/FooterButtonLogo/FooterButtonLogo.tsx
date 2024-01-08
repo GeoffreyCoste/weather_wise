@@ -1,13 +1,13 @@
 'use client'
 
-import Link from "next/link";
-import Image from "next/image";
-import { useTheme } from "@/hooks/useTheme";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import LogoPictoBlue from '@/public/weather_wise_picto_blue.svg';
-import LogoPictoWhite from '@/public/weather_wise_picto_white.svg';
-import LogoBrandBlue from '@/public/weather_wise_brand_blue.svg';
-import LogoBrandWhite from '@/public/weather_wise_brand_white.svg';
+import Link from "next/link"
+import Image from "next/image"
+import { useTheme } from "@/hooks/useTheme"
+import { useMediaQuery } from "@/hooks/useMediaQuery"
+import LogoPictoBlue from '@/public/weather_wise_picto_blue.svg'
+import LogoPictoWhite from '@/public/weather_wise_picto_white.svg'
+import LogoBrandBlue from '@/public/weather_wise_brand_blue.svg'
+import LogoBrandWhite from '@/public/weather_wise_brand_white.svg'
 
 export const FooterButtonLogo = () => {
 

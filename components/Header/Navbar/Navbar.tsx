@@ -1,12 +1,24 @@
-import { NavLink } from "./NavLink/NavLink";
+import { getServerSession } from "next-auth"
+import { NavLink } from "./NavLink/NavLink"
 
-const Navbar = () => {
-    const links = [
-        {title: 'home', path: '/'},
-        {title: 'about', path: '/about'},
-        {title: 'terms', path: '/terms'},
-        {title: 'contact', path: '/contact'}
-    ];
+const Navbar = async () => {
+
+    const {user} = await getServerSession() || {};
+
+    let firstLink;
+
+    if (!user) {
+      firstLink = {title: 'home' , path: '/'};
+    } else {
+      firstLink = {title: 'dashboard' , path: '/user/dashboard'}
+    }
+
+  const links = [
+      firstLink,
+      {title: 'about', path: '/about'},
+      {title: 'terms', path: '/terms'},
+      {title: 'contact', path: '/contact'}
+  ];
 
   return (
     <nav

@@ -1,13 +1,12 @@
 'use client';
 
-import React, {createContext, useReducer, useMemo, /* useEffect, */ PropsWithChildren} from 'react';
+import React, {createContext, useReducer, useMemo, PropsWithChildren} from 'react'
 import {
   TemperatureReducer,
   initialState,
   TemperatureState,
   TemperatureActionsType,
-  /* initTemperature */
-} from '@/reducers/temperatureReducer';
+} from '@/reducers/temperatureReducer'
 
 export type Temperature = 'celsius' | 'fahrenheit';
 
@@ -28,25 +27,6 @@ export const TemperatureProvider = ({children}: PropsWithChildren) => {
   const currentTemperature = useMemo(() => {
     return {state, dispatch};
   }, [state, dispatch]);
-
-  /* useEffect(() => {
-    const tempInLocalStorage = localStorage.getItem('temperature');
-
-    if (tempInLocalStorage !== null && JSON.parse(tempInLocalStorage)) {
-      // Checking if there is already a state in localStorage
-      // If yes, update the current state with the stored one
-      dispatch(
-        initTemperature(JSON.parse(localStorage.getItem('temperature')!))
-      );
-    }
-  }, []);
-
-  useEffect(() => {
-    if (state !== initialState) {
-      // Create and/or set a new localStorage variable called 'temperature'
-      localStorage.setItem('temperature', JSON.stringify(state.temperature));
-    }
-  }, [state]); */
 
   return (
     <TemperatureContext.Provider value={currentTemperature}>

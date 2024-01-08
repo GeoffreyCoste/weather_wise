@@ -1,10 +1,14 @@
 export interface DailyInterface {
-    time: Date[];
+    time: string[];
     temperature_2m_max: number[];
     temperature_2m_min: number[];
-    sunrise: Date[];
-    sunset: Date[];
+    apparent_temperature_max: number[];
+    apparent_temperature_min: number[];
+    sunrise: string[];
+    sunset: string[];
     uv_index_max: number[];
+    windspeed_10m_max: number[];
+    winddirection_10m_dominant: number[];
     weathercode: number[];
   }
   
@@ -12,10 +16,13 @@ export interface DailyInterface {
     time: string;
     temperature_2m_max: string;
     temperature_2m_min: string;
+    apparent_temperature_max: string;
+    apparent_temperature_min: string;
     sunrise: string;
     sunset: string;
     uv_index_max: string;
-    weathercode: string;
+    windspeed_10m_max: string;
+    winddirection_10m_dominant: string;
   }
   
   export interface HourlyInterface {
@@ -39,17 +46,31 @@ export interface DailyInterface {
     is_day: string;
     weathercode: string;
   }
-  
-  export interface CurrentWeatherInterface {
-    temperature: number;
-    windspeed: number;
-    winddirection: number;
-    weathercode: number;
-    is_day: number;
+
+  export interface CurrentInterface {
     time: string;
+    interval: number;
+    temperature_2m: number;
+    apparent_temperature: number;
+    is_day: number;
+    weathercode: number;
+    relativehumidity_2m: number;
+    windspeed_10m: number;
+    winddirection_10m: number;
   }
-  
-  export interface OpenmeteoInterface {
+
+  interface CurrentUnitsInterface {
+    time: string;
+    interval: string;
+    temperature_2m: string;
+    is_day: string;
+    weathercode: string;
+    relativehumidity_2m: string;
+    windspeed_10m: string;
+    winddirection_10m: string;
+  }
+
+  export interface OpenMeteoData {
     latitude: number;
     longitude: number;
     generationtime_ms: number;
@@ -57,9 +78,10 @@ export interface DailyInterface {
     timezone: string;
     timezone_abbreviation: string;
     elevation: number;
-    current_weather: CurrentWeatherInterface;
-    hourly_units: HourlyUnitsInterface;
-    hourly: HourlyInterface;
-    daily_units: DailyUnitsInterface;
-    daily: DailyInterface;
+    current_units: CurrentUnitsInterface;
+    current?: CurrentInterface;
+    hourly_units?: HourlyUnitsInterface;
+    hourly?: HourlyInterface;
+    daily_units?: DailyUnitsInterface;
+    daily?: DailyInterface;
   }

@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect } from "react";
-import { useModal } from "@/hooks/useModal";
-import { ModalPortal } from "../ModalPortal";
-import { useKeyPress } from "@/hooks/useKeyPress";
-import { ModalBackdrop } from "./ModalBackdrop/ModalBackdrop";
-import { ModalDialog } from "./ModalDialog/ModalDialog";
-import SelectAutocomplete from "@/components/SelectAutocomplete/SelectAutocomplete";
+import { useEffect } from "react"
+import { useModal } from "@/hooks/useModal"
+import { ModalPortal } from "../ModalPortal"
+import { useKeyPress } from "@/hooks/useKeyPress"
+import { ModalBackdrop } from "./ModalBackdrop/ModalBackdrop"
+import { ModalDialog } from "./ModalDialog/ModalDialog"
+import SelectAutocomplete from "@/components/SelectAutocomplete/SelectAutocomplete"
 
 export const Modal = () => {
     
@@ -20,10 +20,8 @@ export const Modal = () => {
     useEffect(() => {
       let root = document.documentElement; // Targeting <html> tag
       if (isOpen) {
-        /* root.classList.add('fixed', 'overflow-y-scroll', 'w-full'); */
         root.classList.add('fixed', 'w-full');
       } else {
-        /* root.classList.remove('fixed', 'overflow-y-scroll', 'w-full'); */
         root.classList.remove('fixed', 'w-full');
       }
     }, [isOpen]);

@@ -3,27 +3,45 @@
         "default_title": "Weather Wise",
         "button_login": "Connexion",
         "button_signup": "Créer un compte",
+        "button_logout": "Déconnexion",
         "header": {
             "button_open_modal": "Rechercher",
             "navbar": {
                 "navlinks": {
                     "home": "Accueil",
+                    "dashboard": "Tableau de bord",
                     "about": "A propos",
                     "terms": "Conditions",
                     "contact": "Contact"
                 }
             },
-            "collapsible_menu": {
+            "settings_collapsible_menu": {
                 "title": "Réglages",
                 "label_language": "Langue",
                 "label_degrees": "Degrés"
+            },
+            "user_collapsible_menu": {
+                "link_account": "Mon compte",
+                "link_profile": "Mon profil",
+                "link_settings": "Mes réglages"
             }
         },
         "side_menu": {
+            "title_learn_more": "En savoir plus",
             "title_connection": "Connexion",
             "title_settings": "Réglages",
             "label_language": "Langue",
-            "label_degrees": "Degrés"
+            "label_degrees": "Degrés",
+            "user_hello": {
+                "day": "Bonjour",
+                "night": "Bonsoir"
+            },
+            "user_links": {
+                "dashboard": "Mon tableau de bord",
+                "account": "Mon compte",
+                "profile": "Mon profil",
+                "settings": "Mes réglages"
+            }
         },
         "modal": {
             "title": "Rechercher un lieu",
@@ -36,17 +54,17 @@
                 "title": "<h3>Météo <strong>du jour</strong></h3>",
                 "sunrise": {
                   "title": "Lever soleil : ",
-                  "time": "{formatDate, date, ::h:mm a}"
+                  "time": "{formatDate, date, ::k:mm}"
                 },
                 "sunset": {
                   "title": "Coucher soleil : ",
-                  "time": "{formatDate, date, ::h:mm a}"
+                  "time": "{formatDate, date, ::k:mm}"
                 }
             },
             "hourly_weather": {
                 "title": "<h3>Météo <strong>heure par heure</strong></h3>",
                 "now": "Maintenant",
-                "time": "{formatDate, date, ::HH:mm}"
+                "time": "{formatDate, date, ::k:mm}"
             },
             "weekly_weather": {
                 "title": "<h3>Météo <strong>sur 7 jours</strong></h3>",
@@ -88,11 +106,7 @@
     },
     "HomePage": {
         "title": "<h1>Conçu pour les véritables <span>#sun followers</span></h1>",
-        "baseline": "Bénéficiez de prévisions météo précises et en temps réel gratuitement. Créez un compte pour davantage de précisions et services.",
-        "transition_paragraph": "ou découvrez tout simplement",
-        "sub_title": "quel temps fait-il chez vous ?",
-        "button_geolocation": "Géolocalisez-moi",
-        "button_geolocation_refresh": "Actualiser"
+        "baseline": "Bénéficiez de prévisions météo précises et en temps réel gratuitement. Créez un compte pour davantage de précisions et services."
     },
     "CityPage": {
         "title": "<h1>Nos prévisions</h1>"
@@ -299,7 +313,7 @@
             "input_new_password_label": "Nouveau mot de passe",
             "input_new_password_placeholder": "Nouveau mot de passe",
             "input_new_password_errors": {
-                "empty": "Le mot de passe est un champ obligatoire",
+                "empty": "Le nouveau mot de passe est un champ obligatoire",
                 "combos": {
                     "intro": "Votre mot de passe doit comporter :",
                     "items": "<item>Au moins 8 caractères</item><item>Des majuscules et des minuscules</item><item>Au moins 1 nombre</item><item>Au moins 1 caractère spécial (Ex : !?@#$€&%*^)</item>"
@@ -312,6 +326,940 @@
                 "noMatch": "Le mot de passe et la confirmation ne concordent pas"
             },
             "button_submit_change": "Enregistrer le changement"
+        }
+    },
+    "DashboardLayout": {
+        "breadcrumb": {
+            "dashboard": "Mon tableau de bord",
+            "forecasts": "Mes prévisions",
+            "favourites": "Mes favoris",
+            "profile": "Mon profil",
+            "settings": "Mes réglages"
+        }
+    },
+    "DashboardMainPage": {
+        "title": "Mon tableau de bord",
+        "forecastsCard": {
+            "title": "Mes prévisions",
+            "button_show_more": "Voir plus",
+            "badge_residence": "Domicile",
+            "briefly_weather": {
+                "title": "<h4>Météo <strong>en bref</strong></h4>",
+                "feelsLike": "Ressenti : ",
+                "sunrise": {
+                  "title": "Lever soleil : ",
+                  "time": "{formatDate, date, ::k:mm}"
+                },
+                "sunset": {
+                  "title": "Coucher soleil : ",
+                  "time": "{formatDate, date, ::k:mm}"
+                }
+            },
+            "upcoming_weather": {
+                "title": "<h4>Météo <strong>à venir</strong></h4>",
+                "time": "{formatDate, date, ::k:mm}"
+            }
+        },
+        "favouritesCard": {
+            "title": "Mes favoris",
+            "button_show_more": "Voir plus",
+            "favouritesList": {
+                "add_favourites": {
+                    "start": "Vous pouvez maintenant",
+                    "end": "Ajouter vos favoris",
+                    "button": "Rechercher"
+                }
+            }
+        },
+        "weathercodes": {
+            "0": "Dégagé",
+            "1": "Temps clair",
+            "2": "Intervalles nuageux",
+            "3": "Ciel nuageux",
+            "45": "Brouillard",
+            "48": "Brouillard givrant",
+            "51": "Légère bruine",
+            "53": "Bruine modérée",
+            "55": "Bruine dense",
+            "56": "Légère bruine verglaçante",
+            "57": "Bruine verglaçante dense",
+            "61": "Légères pluies",
+            "63": "Pluies modérées",
+            "65": "Fortes pluies",
+            "66": "Légères pluies verglaçantes",
+            "67": "Fortes pluies verglaçantes",
+            "71": "Légères chutes de neige",
+            "73": "Chutes de neige modérées",
+            "75": "Fortes chutes de neige",
+            "77": "Grains de neige",
+            "80": "Légères averses",
+            "81": "Averses modérées",
+            "82": "Averses violentes",
+            "85": "Légères averses de neige",
+            "86": "Fortes averses de neige",
+            "95": "Orages",
+            "96": "Orages avec grêle légère",
+            "99": "Orages avec forte grêle"
+        }
+    },
+    "DashboardForecastsPage": {
+        "title": "Mes prévisions",
+        "forecastsCard": {
+            "button_daily_filter": "Maintenant",
+            "button_weekly_filter": "7 jours",
+            "button_days_filter": {
+                "today": "Aujourd'hui",
+                "tomorrow": "Demain",
+                "sunday": "Dimanche", 
+                "monday": "Lundi", 
+                "tuesday": "Mardi", 
+                "wednesday": "Mercredi", 
+                "thursday": "Jeudi", 
+                "friday": "Vendredi", 
+                "saturday": "Samedi"
+            },
+            "current_weather": {
+                "title": "<h4>Météo <strong>du jour</strong></h4>",
+                "feelsLike": "Ressenti : ",
+                "sunrise": {
+                  "title": "Lever soleil : ",
+                  "time": "{formatDate, date, ::k:mm}"
+                },
+                "sunset": {
+                  "title": "Coucher soleil : ",
+                  "time": "{formatDate, date, ::k:mm}"
+                }
+            },
+            "details_weather": {
+                "title": "<h4>Météo <strong>en détails</strong></h4>",
+                "cards": {
+                    "wind": {
+                        "title": "Vent",
+                        "direction": {
+                            "north": "Nord",
+                            "north_east": "Nord Est",
+                            "north_west": "Nord Ouest",
+                            "south": "Sud",
+                            "south_east": "Sud Est",
+                            "south_west": "Sud Ouest",
+                            "east": "Est",
+                            "west": "Ouest"
+                        }
+                    },
+                    "uv": {
+                        "title": "Indice UV",
+                        "desc": {
+                            "low": "Faible",
+                            "moderate": "Modéré",
+                            "high": "Elevé",
+                            "very_high": "Très élevé",
+                            "extreme": "Extrême"
+                        }
+                    },
+                    "air": {
+                        "title": "Qualité de l'air",
+                        "desc": {
+                            "good": "Bonne",
+                            "fair": "Passable",
+                            "moderate": "Modérée",
+                            "poor": "Mauvaise",
+                            "very_poor": "Très mauvaise",
+                            "extremely_poor": "Extrêmement mauvaise",
+                            "no_desc": ""
+                        }
+                    },
+                    "humidity": {
+                        "title": "Humidité"
+
+                    }
+                }
+            },
+            "hourly_weather": {
+                "title": "<h4>Météo <strong>heure par heure</strong></h4>",
+                "time": "{formatDate, date, ::k:mm}"
+            },
+            "weekly_weather": {
+                "title": "<h4>Météo <strong>sur 7 jours</strong></h4>",
+                "details": {
+                    "current_weather": {
+                        "title": "Météo du :"
+                    },
+                    "period": "Semaine du {startDate, date, ::yyyMd} au {endDate, date, ::yyyMd}",
+                    "day_card": {
+                        "day": {
+                            "today": "Aujourd'hui",
+                            "tomorrow": "Demain",
+                            "sunday": "Dimanche", 
+                            "monday": "Lundi", 
+                            "tuesday": "Mardi", 
+                            "wednesday": "Mercredi", 
+                            "thursday": "Jeudi", 
+                            "friday": "Vendredi", 
+                            "saturday": "Samedi"
+                        },
+                        "time": "{formatDate, date, ::dLLL}",
+                        "wind": {
+                            "title": "Vent",
+                            "direction": {
+                                "north": "Nord",
+                                "north_east": "Nord Est",
+                                "north_west": "Nord Ouest",
+                                "south": "Sud",
+                                "south_east": "Sud Est",
+                                "south_west": "Sud Ouest",
+                                "east": "Est",
+                                "west": "Ouest"
+                            }
+                        },
+                        "uv": {
+                            "title": "UV Index",
+                            "desc": {
+                                "low": "Faible",
+                                "moderate": "Modéré",
+                                "high": "Elevé",
+                                "very_high": "Très élevé",
+                                "extreme": "Extrême"
+                            }
+                        }
+                    },
+                    "selected_day_card": {
+                        "feelsLike": "Ressenti :",
+                        "cards": {
+                            "wind": {
+                                "title": "Vent",
+                                "unit": "km/h",
+                                "direction": {
+                                    "north": "Nord",
+                                    "north_east": "Nord Est",
+                                    "north_west": "Nord Ouest",
+                                    "south": "Sud",
+                                    "south_east": "Sud Est",
+                                    "south_west": "Sud Ouest",
+                                    "east": "Est",
+                                    "west": "Ouest"
+                                }
+                            },
+                            "uv": {
+                                "title": "Indice UV",
+                                "desc": {
+                                    "low": "Faible",
+                                    "moderate": "Modéré",
+                                    "high": "Elevé",
+                                    "very_high": "Très élevé",
+                                    "extreme": "Extrême"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "weathercodes": {
+            "0": "Dégagé",
+            "1": "Temps clair",
+            "2": "Intervalles nuageux",
+            "3": "Ciel nuageux",
+            "45": "Brouillard",
+            "48": "Brouillard givrant",
+            "51": "Légère bruine",
+            "53": "Bruine modérée",
+            "55": "Bruine dense",
+            "56": "Légère bruine verglaçante",
+            "57": "Bruine verglaçante dense",
+            "61": "Légères pluies",
+            "63": "Pluies modérées",
+            "65": "Fortes pluies",
+            "66": "Légères pluies verglaçantes",
+            "67": "Fortes pluies verglaçantes",
+            "71": "Légères chutes de neige",
+            "73": "Chutes de neige modérées",
+            "75": "Fortes chutes de neige",
+            "77": "Grains de neige",
+            "80": "Légères averses",
+            "81": "Averses modérées",
+            "82": "Averses violentes",
+            "85": "Légères averses de neige",
+            "86": "Fortes averses de neige",
+            "95": "Orages",
+            "96": "Orages avec grêle légère",
+            "99": "Orages avec forte grêle"
+        }
+    },
+    "DashboardFavouritesPage": {
+        "title": "Mes favoris",
+        "settings_menu": {
+            "title": "Réglages",
+            "dropdowns": {
+                "sort": {
+                    "title": "Trier"
+                },
+                "filters": {
+                    "title": "Filtrer"
+                }
+            },
+            "cards": {
+                "filter": {
+                    "selected": "Sélectionné(s)",
+                    "button_reset": "Réinitialiser",
+                    "dropdown_stacked": {
+                        "continents": {
+                            "title": "Continents",
+                            "filters": {
+                                "0": "Afrique",
+                                "1": "Amérique du Nord",
+                                "2": "Amérique du Sud",
+                                "3": "Antarctique",
+                                "4": "Asie",
+                                "5": "Europe",
+                                "6": "Océanie"
+                            }
+                        },
+                        "countries": {
+                            "title": "Pays",
+                            "filters": {
+                                "0": "Afghanistan",
+                                "1": "Afrique du Sud",
+                                "2": "Albanie",
+                                "3": "Algérie",
+                                "4": "Allemagne",
+                                "5": "Andorre",
+                                "6": "Angola",
+                                "7": "Anguilla",
+                                "8": "Antarctique",
+                                "9": "Antigua-et-Barbuda",
+                                "10": "Arabie saoudite",
+                                "11": "Argentine",
+                                "12": "Arménie",
+                                "13": "Aruba",
+                                "14": "Australie",
+                                "15": "Autriche",
+                                "16": "Azerbaïdjan",
+                                "17": "Bahamas",
+                                "18": "Bahreïn",
+                                "19": "Bangladesh",
+                                "20": "Barbade",
+                                "21": "Belgique",
+                                "22": "Belize",
+                                "23": "Bénin",
+                                "24": "Bermudes",
+                                "25": "Bhoutan",
+                                "26": "Biélorussie",
+                                "27": "Birmanie",
+                                "28": "Bolivie",
+                                "29": "Bonaire, Saint-Eustache et Saba",
+                                "30": "Bosnie-Herzégovine",
+                                "31": "Botswana",
+                                "32": "Brésil",
+                                "33": "Brunei",
+                                "34": "Bulgarie",
+                                "35": "Burkina Faso",
+                                "36": "Burundi",
+                                "37": "Cambodge",
+                                "38": "Cameroun",
+                                "39": "Canada",
+                                "40": "Cap-Vert",
+                                "41": "Chili",
+                                "42": "Chine",
+                                "43": "Chypre",
+                                "44": "Colombie",
+                                "45": "Comores",
+                                "46": "Corée du Nord",
+                                "47": "Corée du Sud",
+                                "48": "Costa Rica",
+                                "49": "Côte d’Ivoire", 
+                                "50": "Croatie",
+                                "51": "Cuba",
+                                "52": "Curacao",
+                                "53": "Danemark",
+                                "54": "Djibouti",
+                                "55": "Dominique",
+                                "56": "Égypte",
+                                "57": "Émirats arabes unis",
+                                "58": "Équateur",
+                                "59": "Érythrée",
+                                "60": "Espagne",
+                                "61": "Estonie",
+                                "62": "États-Unis",
+                                "63": "Éthiopie",
+                                "64": "Fidji",
+                                "65": "Finlande",
+                                "66": "France",
+                                "67": "Gabon",
+                                "68": "Gambie",
+                                "69": "Géorgie",
+                                "70": "Géorgie du Sud-et-les îles Sandwich du Sud",
+                                "71": "Ghana",
+                                "72": "Gibraltar",
+                                "73": "Grèce",
+                                "74": "Groenland",
+                                "75": "Grenade",
+                                "76": "Guadeloupe",
+                                "77": "Guam",
+                                "78": "Guatemala",
+                                "79": "Guernesey",
+                                "80": "Guinée",
+                                "81": "Guinée-Bissau",
+                                "82": "Guinée équatoriale",
+                                "83": "Guyana",
+                                "84": "Guyane",
+                                "85": "Haïti",
+                                "86": "Honduras",
+                                "87": "Hong Kong",
+                                "88": "Hongrie",
+                                "89": "Iles Aland",
+                                "90": "Ile Bouvet",
+                                "91": "Iles Caïmans",
+                                "92": "Ile Christmas",
+                                "93": "Iles Cocos",
+                                "94": "Iles Falkland",
+                                "95": "Iles Féroé",
+                                "96": "Iles Heard et McDonald",
+                                "97": "Ile de Man",
+                                "98": "Îles Marshall",
+                                "99": "Iles mineures éloignées des États-Unis",
+                                "100": "Ile Norfolk",
+                                "101": "Iles Mariannes du Nord",
+                                "102": "Iles Pitcairn",
+                                "103": "Îles Salomon",
+                                "104": "Îles Turks et Caïques",
+                                "105": "Iles Vierges britanniques",
+                                "106": "Iles Vierges des Etats-Unis",
+                                "107": "Inde",
+                                "108": "Indonésie",
+                                "109": "Iran",
+                                "110": "Irak",
+                                "111": "Irlande",
+                                "112": "Islande",
+                                "113": "Israël",
+                                "114": "Italie",
+                                "115": "Jamaïque",
+                                "116": "Japon",
+                                "117": "Jersey",
+                                "118": "Jordanie",
+                                "119": "Kazakhstan",
+                                "120": "Kenya",
+                                "121": "Kiribati",
+                                "122": "Koweït",
+                                "123": "Kirghizistan",
+                                "124": "Laos",
+                                "125": "Lesotho",
+                                "126": "Lettonie",
+                                "127": "Liban",
+                                "128": "Liberia",
+                                "129": "Libye",
+                                "130": "Liechtenstein",
+                                "131": "Lituanie",
+                                "132": "Luxembourg",
+                                "133": "Macao",
+                                "134": "Macédoine du Nord",
+                                "135": "Madagascar",
+                                "136": "Malaisie",
+                                "137": "Malawi",
+                                "138": "Maldives",
+                                "139": "Mali",
+                                "140": "Malte",
+                                "141": "Maroc",
+                                "142": "Martinique",
+                                "143": "Mauritanie",
+                                "144": "Maurice",
+                                "145": "Mayotte",
+                                "146": "Mexique",
+                                "147": "Micronésie",
+                                "148": "Moldavie",
+                                "149": "Monaco",
+                                "150": "Mongolie",
+                                "151": "Monténégro",
+                                "152": "Montserrat",
+                                "153": "Mozambique",
+                                "154": "Namibie",
+                                "155": "Nauru",
+                                "156": "Népal",
+                                "157": "Nouvelle-Calédonie",
+                                "158": "Nouvelle-Zélande",
+                                "159": "Nicaragua",
+                                "160": "Niger",
+                                "161": "Nigeria",
+                                "162": "Niué",
+                                "163": "Norvège",
+                                "164": "Oman",
+                                "165": "Ouganda",
+                                "166": "Ouzbékistan",
+                                "167": "Pakistan",
+                                "168": "Palau",
+                                "169": "Palestine",
+                                "170": "Panama",
+                                "171": "Papouasie-Nouvelle-Guinée",
+                                "172": "Paraguay",
+                                "173": "Pays-Bas",
+                                "174": "Pérou",
+                                "175": "Philippines",
+                                "176": "Pologne",
+                                "177": "Polynésie française",
+                                "178": "Portugal",
+                                "179": "Puerto Rico",
+                                "180": "Qatar",
+                                "181": "République centrafricaine",
+                                "182": "République démocratique du Congo",
+                                "183": "République dominicaine",
+                                "184": "République du Congo",
+                                "185": "République tchèque",
+                                "186": "Réunion",
+                                "187": "Roumanie",
+                                "188": "Royaume-Uni",
+                                "189": "Russie",
+                                "190": "Rwanda",
+                                "191": "Sahara Occidental",
+                                "192": "Saint-Barthélemy",
+                                "193": "Saint-Christophe-et-Niévès",
+                                "194": "Sainte-Hélène",
+                                "195": "Sainte-Lucie",
+                                "196": "Saint-Marin",
+                                "197": "Saint-Martin",
+                                "198": "Saint-Martin",
+                                "199": "Saint-Pierre-et-Miquelon",
+                                "200": "Saint-Vincent-et-les-Grenadines",
+                                "201": "Salvador",
+                                "202": "Samoa",
+                                "203": "Samoa américaines",
+                                "204": "São Tomé-et-Principe",
+                                "205": "Sénégal",
+                                "206": "Serbie",
+                                "207": "Seychelles",
+                                "208": "Sierra Leone",
+                                "209": "Singapour",
+                                "210": "Slovaquie",
+                                "211": "Slovénie",
+                                "212": "Somalie",
+                                "213": "Soudan",
+                                "214": "Soudan du Sud",
+                                "215": "Sri Lanka",
+                                "216": "Suède",
+                                "217": "Suisse",
+                                "218": "Suriname",
+                                "219": "Svalbard et Jan Mayen",
+                                "220": "Swaziland",
+                                "221": "Syrie",
+                                "222": "Tadjikistan",
+                                "223": "Taïwan",
+                                "224": "Tanzanie",
+                                "225": "Tchad",
+                                "226": "Terres australes et antarctiques françaises",
+                                "227": "Territoire britannique de l'océan Indien",
+                                "228": "Thaïlande",
+                                "229": "Timor oriental",
+                                "230": "Togo",
+                                "231": "Tokelau",
+                                "232": "Tonga",
+                                "233": "Trinité-et-Tobago",
+                                "234": "Tunisie",
+                                "235": "Turkménistan",
+                                "236": "Turquie",
+                                "237": "Tuvalu",
+                                "238": "Ukraine",
+                                "239": "Uruguay",
+                                "240": "Vanuatu",
+                                "241": "Vatican",
+                                "242": "Venezuela",
+                                "243": "Viêt Nam",
+                                "244": "Wallis et Futuna",
+                                "245": "Yémen",
+                                "246": "Zambie",
+                                "247": "Zimbabwe"
+                            }
+                        }
+                    }
+                }
+            },
+            "button_submit": "Appliquer"
+        },
+        "no_favourites": {
+            "start": "Ajoutez vos favoris",
+            "end": "pour les retrouver ici"
+        },
+        "favourites_list": {
+            "button_remove_favourite": "Retirer",
+            "continents": {
+                "0": "Afrique",
+                "1": "Amérique du Nord",
+                "2": "Amérique du Sud",
+                "3": "Antarctique",
+                "4": "Asie",
+                "5": "Europe",
+                "6": "Océanie"
+            }
+        }
+    },
+    "UserConfigLayout": {
+        "navbar": {
+            "navlinks": {
+                "account": "Mon compte",
+                "profile": "Mon profil",
+                "settings": "Mes réglages"
+            }
+        }
+    },
+    "UserAccountPage": {
+        "details_list": {
+            "update_password": {
+                "title": "Changer de mot de passe",
+                "description": "Renseignez les deux champs pour modifier votre mot de passe.",
+                "form": {
+                    "input_current_password_label": "Mot de passe",
+                    "input_current_password_placeholder": "Mot de passe",
+                    "input_current_password_errors": {
+                        "empty": "Le mot de passe est un champ obligatoire",
+                        "combos": {
+                            "intro": "Votre mot de passe doit comporter :",
+                            "items": "<item>Au moins 8 caractères</item><item>Des majuscules et des minuscules</item><item>Au moins 1 nombre</item><item>Au moins 1 caractère spécial (Ex : !?@#$€&%*^)</item>"
+                        }
+                    },
+                    "input_new_password_label": "Nouveau mot de passe",
+                    "input_new_password_placeholder": "Nouveau mot de passe",
+                    "input_new_password_errors": {
+                        "empty": "Le nouveau mot de passe est un champ obligatoire",
+                        "combos": {
+                            "intro": "Votre mot de passe doit comporter :",
+                            "items": "<item>Au moins 8 caractères</item><item>Des majuscules et des minuscules</item><item>Au moins 1 nombre</item><item>Au moins 1 caractère spécial (Ex : !?@#$€&%*^)</item>"
+                        }
+                    },
+                    "button_submit_change": "Enregistrer le changement"
+                },
+                "success_change_password": "Votre mot de passe a bien été modifié 👍",
+                "error_change_password": "Une erreur est survenue 😅"
+            },
+            "danger_zone": {
+                "title": "Zone de danger",
+                "description": "La suppression de votre compte effacera toutes les informations vous concernant et les prévisions que vous avez configurées sur Weather Wise.",
+                "button_delete_account": "Supprimer mon compte",
+                "confirmation_title": "<p>Confirmez-vous la suppression de votre compte ? <span>Cette action est irréversible.</span></p>",
+                "button_cancel_delete": "Annuler",
+                "button_confirm_delete": "Supprimer",
+                "error_delete_account": "Une erreur est survenue 😅"
+            }
+        }
+    },
+    "UserProfilePage": {
+        "form": {
+            "title": "Editer votre profil",
+            "input_firstname_label": "Prénom",
+            "input_firstname_placeholder": "Prénom",
+            "input_firstname_errors": {
+                "empty": "Le prénom est un champ obligatoire",
+                "min_length": "Le prénom doit comporter au moins 2 caractères",
+                "max_length": "Le prénom ne doit pas excéder la limite de 50 caractères maximum",
+                "only_alphabet": "Les chiffres et caractères spéciaux ne sont pas autorisés"
+            },
+            "input_lastname_label": "Nom",
+            "input_lastname_placeholder": "Nom",
+            "input_lastname_errors": {
+                "empty": "Le nom est un champ obligatoire",
+                "min_length": "Le nom doit comporter au moins 2 caractères",
+                "max_length": "Le nom ne doit pas excéder la limite de 50 caractères maximum",
+                "only_alphabet": "Les chiffres et caractères spéciaux ne sont pas autorisés"
+            },
+            "input_location_label": "Domicile",
+            "input_location_placeholder": "Ville",
+            "input_location_default_option_label": "Lieu recherché à préciser",
+            "input_location_errors": {
+                "empty": "Le domicile est un champ obligatoire",
+                "cityNotFound": "Ville non trouvée"
+            },
+            "input_email_label": "Email",
+            "input_email_placeholder": "Email",
+            "input_email_errors": {
+                "empty": "L'email est un champ obligatoire",
+                "format": "Le format de l'email est : exemple@email.com",
+                "not_unique": "Cette adresse email est déjà utilisée. Connectez-vous ou utilisez un autre email."
+            },
+            "button_edit": "Editer",
+            "button_save": "Sauvegarder",
+            "button_cancel": "Annuler"
+        }
+    },
+    "UserSettingsPage": {
+        "settings": {
+            "theme": {
+                "title": "Thème",
+                "description": "Sélectionnez votre thème préféré."
+            },
+            "languages": {
+                "title": "Langues",
+                "description": "Sélectionnez la langue d'affichage par défaut."
+            },
+            "units": {
+                "title": "Unités",
+                "description": "Sélectionnez les unités d'expression des données météorologiques.",
+                "datas": {
+                    "temperatures": "Températures",
+                    "windspeed": "Vitesse du vent"
+                }
+            }
+        }
+    },
+    "NotFoundPage": {
+        "title": "Page non trouvée",
+        "button_back_home": "Accueil",
+        "description": "Vérifiez l'url dans la barre d'adresse ou utilisez l'historique de navigation afin de revenir vers une page existante."
+    },
+    "GeoNames": {
+        "continent": {
+            "0": "Afrique",
+            "1": "Amérique du Nord",
+            "2": "Amérique du Sud",
+            "3": "Antarctique",
+            "4": "Asie",
+            "5": "Europe",
+            "6": "Océanie"
+        },
+        "country": {
+            "0": "Afghanistan",
+            "1": "Afrique du Sud",
+            "2": "Albanie",
+            "3": "Algérie",
+            "4": "Allemagne",
+            "5": "Andorre",
+            "6": "Angola",
+            "7": "Anguilla",
+            "8": "Antarctique",
+            "9": "Antigua-et-Barbuda",
+            "10": "Arabie saoudite",
+            "11": "Argentine",
+            "12": "Arménie",
+            "13": "Aruba",
+            "14": "Australie",
+            "15": "Autriche",
+            "16": "Azerbaïdjan",
+            "17": "Bahamas",
+            "18": "Bahreïn",
+            "19": "Bangladesh",
+            "20": "Barbade",
+            "21": "Belgique",
+            "22": "Belize",
+            "23": "Bénin",
+            "24": "Bermudes",
+            "25": "Bhoutan",
+            "26": "Biélorussie",
+            "27": "Birmanie",
+            "28": "Bolivie",
+            "29": "Bonaire, Saint-Eustache et Saba",
+            "30": "Bosnie-Herzégovine",
+            "31": "Botswana",
+            "32": "Brésil",
+            "33": "Brunei",
+            "34": "Bulgarie",
+            "35": "Burkina Faso",
+            "36": "Burundi",
+            "37": "Cambodge",
+            "38": "Cameroun",
+            "39": "Canada",
+            "40": "Cap-Vert",
+            "41": "Chili",
+            "42": "Chine",
+            "43": "Chypre",
+            "44": "Colombie",
+            "45": "Comores",
+            "46": "Corée du Nord",
+            "47": "Corée du Sud",
+            "48": "Costa Rica",
+            "49": "Côte d’Ivoire", 
+            "50": "Croatie",
+            "51": "Cuba",
+            "52": "Curacao",
+            "53": "Danemark",
+            "54": "Djibouti",
+            "55": "Dominique",
+            "56": "Égypte",
+            "57": "Émirats arabes unis",
+            "58": "Équateur",
+            "59": "Érythrée",
+            "60": "Espagne",
+            "61": "Estonie",
+            "62": "États-Unis",
+            "63": "Éthiopie",
+            "64": "Fidji",
+            "65": "Finlande",
+            "66": "France",
+            "67": "Gabon",
+            "68": "Gambie",
+            "69": "Géorgie",
+            "70": "Géorgie du Sud-et-les îles Sandwich du Sud",
+            "71": "Ghana",
+            "72": "Gibraltar",
+            "73": "Grèce",
+            "74": "Groenland",
+            "75": "Grenade",
+            "76": "Guadeloupe",
+            "77": "Guam",
+            "78": "Guatemala",
+            "79": "Guernesey",
+            "80": "Guinée",
+            "81": "Guinée-Bissau",
+            "82": "Guinée équatoriale",
+            "83": "Guyana",
+            "84": "Guyane",
+            "85": "Haïti",
+            "86": "Honduras",
+            "87": "Hong Kong",
+            "88": "Hongrie",
+            "89": "Iles Aland",
+            "90": "Ile Bouvet",
+            "91": "Iles Caïmans",
+            "92": "Ile Christmas",
+            "93": "Iles Cocos",
+            "94": "Iles Falkland",
+            "95": "Iles Féroé",
+            "96": "Iles Heard et McDonald",
+            "97": "Ile de Man",
+            "98": "Îles Marshall",
+            "99": "Iles mineures éloignées des États-Unis",
+            "100": "Ile Norfolk",
+            "101": "Iles Mariannes du Nord",
+            "102": "Iles Pitcairn",
+            "103": "Îles Salomon",
+            "104": "Îles Turks et Caïques",
+            "105": "Iles Vierges britanniques",
+            "106": "Iles Vierges des Etats-Unis",
+            "107": "Inde",
+            "108": "Indonésie",
+            "109": "Iran",
+            "110": "Irak",
+            "111": "Irlande",
+            "112": "Islande",
+            "113": "Israël",
+            "114": "Italie",
+            "115": "Jamaïque",
+            "116": "Japon",
+            "117": "Jersey",
+            "118": "Jordanie",
+            "119": "Kazakhstan",
+            "120": "Kenya",
+            "121": "Kiribati",
+            "122": "Koweït",
+            "123": "Kirghizistan",
+            "124": "Laos",
+            "125": "Lesotho",
+            "126": "Lettonie",
+            "127": "Liban",
+            "128": "Liberia",
+            "129": "Libye",
+            "130": "Liechtenstein",
+            "131": "Lituanie",
+            "132": "Luxembourg",
+            "133": "Macao",
+            "134": "Macédoine du Nord",
+            "135": "Madagascar",
+            "136": "Malaisie",
+            "137": "Malawi",
+            "138": "Maldives",
+            "139": "Mali",
+            "140": "Malte",
+            "141": "Maroc",
+            "142": "Martinique",
+            "143": "Mauritanie",
+            "144": "Maurice",
+            "145": "Mayotte",
+            "146": "Mexique",
+            "147": "Micronésie",
+            "148": "Moldavie",
+            "149": "Monaco",
+            "150": "Mongolie",
+            "151": "Monténégro",
+            "152": "Montserrat",
+            "153": "Mozambique",
+            "154": "Namibie",
+            "155": "Nauru",
+            "156": "Népal",
+            "157": "Nouvelle-Calédonie",
+            "158": "Nouvelle-Zélande",
+            "159": "Nicaragua",
+            "160": "Niger",
+            "161": "Nigeria",
+            "162": "Niué",
+            "163": "Norvège",
+            "164": "Oman",
+            "165": "Ouganda",
+            "166": "Ouzbékistan",
+            "167": "Pakistan",
+            "168": "Palau",
+            "169": "Palestine",
+            "170": "Panama",
+            "171": "Papouasie-Nouvelle-Guinée",
+            "172": "Paraguay",
+            "173": "Pays-Bas",
+            "174": "Pérou",
+            "175": "Philippines",
+            "176": "Pologne",
+            "177": "Polynésie française",
+            "178": "Portugal",
+            "179": "Puerto Rico",
+            "180": "Qatar",
+            "181": "République centrafricaine",
+            "182": "République démocratique du Congo",
+            "183": "République dominicaine",
+            "184": "République du Congo",
+            "185": "République tchèque",
+            "186": "Réunion",
+            "187": "Roumanie",
+            "188": "Royaume-Uni",
+            "189": "Russie",
+            "190": "Rwanda",
+            "191": "Sahara Occidental",
+            "192": "Saint-Barthélemy",
+            "193": "Saint-Christophe-et-Niévès",
+            "194": "Sainte-Hélène",
+            "195": "Sainte-Lucie",
+            "196": "Saint-Marin",
+            "197": "Saint-Martin",
+            "198": "Saint-Martin",
+            "199": "Saint-Pierre-et-Miquelon",
+            "200": "Saint-Vincent-et-les-Grenadines",
+            "201": "Salvador",
+            "202": "Samoa",
+            "203": "Samoa américaines",
+            "204": "São Tomé-et-Principe",
+            "205": "Sénégal",
+            "206": "Serbie",
+            "207": "Seychelles",
+            "208": "Sierra Leone",
+            "209": "Singapour",
+            "210": "Slovaquie",
+            "211": "Slovénie",
+            "212": "Somalie",
+            "213": "Soudan",
+            "214": "Soudan du Sud",
+            "215": "Sri Lanka",
+            "216": "Suède",
+            "217": "Suisse",
+            "218": "Suriname",
+            "219": "Svalbard et Jan Mayen",
+            "220": "Swaziland",
+            "221": "Syrie",
+            "222": "Tadjikistan",
+            "223": "Taïwan",
+            "224": "Tanzanie",
+            "225": "Tchad",
+            "226": "Terres australes et antarctiques françaises",
+            "227": "Territoire britannique de l'océan Indien",
+            "228": "Thaïlande",
+            "229": "Timor oriental",
+            "230": "Togo",
+            "231": "Tokelau",
+            "232": "Tonga",
+            "233": "Trinité-et-Tobago",
+            "234": "Tunisie",
+            "235": "Turkménistan",
+            "236": "Turquie",
+            "237": "Tuvalu",
+            "238": "Ukraine",
+            "239": "Uruguay",
+            "240": "Vanuatu",
+            "241": "Vatican",
+            "242": "Venezuela",
+            "243": "Viêt Nam",
+            "244": "Wallis et Futuna",
+            "245": "Yémen",
+            "246": "Zambie",
+            "247": "Zimbabwe"
         }
     }
 }

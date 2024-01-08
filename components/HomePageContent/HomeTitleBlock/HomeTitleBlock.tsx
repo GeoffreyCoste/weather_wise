@@ -11,7 +11,7 @@ export const HomeTitleBlock = () => {
             {t.rich('title', {
               h1: (chunks) => (
                 <h1
-                className="relative mx-auto mb-20 w-full text-center text-3xl font-black leading-tight tracking-tight sm:text-4xl md:mb-24 md:text-5xl lg:mb-32 text-blue-700 dark:text-white md:w-full md:px-8 lg:w-full lg:p-0 lg:text-7xl"
+                className="relative mx-auto mt-8 lg:mt-14 mb-20 w-full text-center text-3xl font-black leading-tight tracking-tight sm:text-4xl md:mb-24 md:text-5xl lg:mb-32 text-blue-700 dark:text-white md:w-full md:px-8 lg:w-full lg:p-0 lg:text-7xl"
                 >
                   {chunks}
                 </h1>

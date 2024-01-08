@@ -1,9 +1,9 @@
-'use client';
+'use client'
 
-import { useState, useLayoutEffect, useTransition, MouseEventHandler } from "react";
-import { useParams } from "next/navigation";
-import { useTemperature } from "@/hooks/useTemperature";
-import { initTemperature, setCelsius, setFahrenheit } from "@/reducers/temperatureReducer";
+import { useState, useLayoutEffect, useTransition, MouseEventHandler } from "react"
+import { useParams } from "next/navigation"
+import { useTemperature } from "@/hooks/useTemperature"
+import { initTemperature, setCelsius, setFahrenheit } from "@/reducers/temperatureReducer"
 
 
 const temperatures = ['celsius', 'fahrenheit'] as const; // 'const assertion' protecting the reference and elements of the array
@@ -26,7 +26,6 @@ const ButtonGroupTemperatures = ({temperatureCookie}: Props) => {
   const [isPending, startTransition] = useTransition();
   
   const params = useParams();
-
 
   const {temperatureState, dispatch} = useTemperature();
     
@@ -76,7 +75,7 @@ const ButtonGroupTemperatures = ({temperatureCookie}: Props) => {
   };
 
   return (
-    <div id="button-group-temperatures" className="relative mt-2 px-1.5 py-1.5 lg:px-2 lg:py-0 inline-flex justify-between w-full rounded-full border-2 border-zinc-50 bg-white dark:border-blue-900 dark:bg-transparent shadow">
+    <div id="button-group-temperatures" className="relative mt-2 px-1.5 py-1.5 lg:px-2 lg:py-0 inline-flex justify-between w-full rounded-full border-2 border-zinc-50 bg-white lg:hover:bg-gray-200 dark:border-blue-900 dark:bg-blue-950 lg:dark:hover:bg-blue-900 shadow">
         <span
           id="background-selected-temperature"
           className={`absolute top-1/2 z-20 inline-block h-7 w-[45%] lg:w-[42%] translate-y-[-50%] bg-blue-700 dark:bg-sky-400 dark:bg-sky-400 rounded-full transition-transform ${temperatureState.temperature === "fahrenheit" && "translate-x-[110%] lg:translate-x-[120%]"}`}

@@ -1,91 +1,46 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import { getServerSession } from "next-auth"
 import { HourlyWeather } from "./HourlyWeather/HourlyWeather"
 import { TodayWeather } from "./TodayWeather/TodayWeather"
 import { WeeklyWeather } from "./WeeklyWeather/WeeklyWeather"
-import { OpenmeteoInterface } from "@/@types/openmeteo"
+import ButtonToggleFavourite from "../ButtonToggleFavourite/ButtonToggleFavourite"
+import { getCityById, getWeather } from "@/utils/handleData"
+import { ListWeatherCardsTitle } from "./ListWeatherCardsTitle"
+import { getCitiesByUserId  } from "@/actions/cityActions"
 
 type Props = {
     cityId: string;
 }
 
-export interface CityInterface {
-    id: string;
-    name: string;
-    state: string;
-    country: string;
-    coord: {lon: number; lat: number};
-    timezone: string;
-    /* slug?: string; */
-}
-
-const getCity = async (id: string): Promise<CityInterface | undefined> => {
-  try {
-      const response = await fetch(`http://localhost:3000/api/city/${id}`);
-
-      const json = await response.json();
-
-      const city: CityInterface = {
-          id: id,
-          name: json.name,
-          state: '',
-          country: json._links['city:country'].name,
-          coord: {
-            lon: json.location.latlon.longitude,
-            lat: json.location.latlon.latitude
-          },
-          timezone: json._links['city:timezone'].name,
-      };
-
-      return city;
-  } catch (error) {
-      console.log(error);
-  }
-};
-
-const getWeather = async (lat: number, lon: number, tz: string): Promise<OpenmeteoInterface | undefined> => {
-  try {
-      const response = await fetch(`http://localhost:3000/api/weather?lat=${lat}&lon=${lon}&tz=${tz}`);
-
-      const weather = await response.json();
-
-      return weather;
-
-  } catch (error) {
-      console.log(error);
-  }
-};
-
 export const ListWeatherCards = async ({cityId}: Props) => {
 
-    const city = await getCity(cityId);
-    let lat: number | undefined;
-    let lon: number | undefined ;
-    let timezone: string | undefined;
-    let weather: OpenmeteoInterface | undefined;
+    const session = await getServerSession(authOptions);
+    const user = session?.user;
 
-    if (city) {
-      lat = city?.coord.lat;
-      lon = city?.coord.lon;
-      timezone = city?.timezone;
+    const favourites = await getCitiesByUserId({id: user?.id, locale: ''});
 
-      weather = await getWeather(lat, lon, timezone);
-    };
+    const city = await getCityById(cityId);
+    const lat = city.latitude;
+    const lon = city.longitude;
+    const tz = city.timezone;
+    const weather = await getWeather(lat, lon, tz);
 
   return (
     <>
-        <h2
-          className="mb-4 text-center text-2xl font-black text-blue-700 dark:text-white"
-        >
-          {city?.name} <br />({city?.country})
-        </h2>
+        <div className="relative w-full max-w-lg mx-auto mb-4">
+          <ListWeatherCardsTitle {...city} />
+          
+          {user && favourites && <ButtonToggleFavourite city={city} favourites={favourites} />}
+        </div>
         <div id="list-weather-cards" className="w-full">
             <section id="today-weather" className="flex w-full justify-center">
-                {city && weather && <TodayWeather city={city} current={weather?.current_weather} daily={weather?.daily} />}
+                {city && weather && <TodayWeather {...weather} />}
             </section>
             <section id="hourly-weather" className="flex w-full justify-center">
-                {city && weather && <HourlyWeather currentTime={weather?.current_weather.time} hourly={weather.hourly} />}
+                {city && weather && <HourlyWeather {...weather} />}
             </section>
             <section id="weekly-weather" className="flex w-full justify-center">
-                {city && weather && <WeeklyWeather daily={weather?.daily} />}
+                {city && weather && <WeeklyWeather {...weather} />}
             </section>
         </div>
     </>

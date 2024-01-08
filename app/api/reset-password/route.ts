@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import { cookies } from 'next/headers';
-import prisma from "@/lib/prisma";
-import * as bcrypt from "bcrypt";
+import { cookies } from 'next/headers'
+import prisma from "@/lib/prisma"
+import * as bcrypt from "bcrypt"
 
 export async function POST(request: Request) {
   // get passwords from payload

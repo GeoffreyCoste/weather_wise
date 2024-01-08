@@ -72,7 +72,7 @@ const ButtonToggleTheme = ({buttonIdPrefix, checkboxId, themeCookie, styleVariat
   };
 
   return (
-    <div id={`${buttonIdPrefix ?? ""}button-theme-toggle`} className={`my-8 items-center justify-center lg:my-0 lg:mr-6 ${styleVariations ?? ""}`}>
+    <div id={`${buttonIdPrefix ?? ""}button-theme-toggle`} className={`items-center justify-center ${styleVariations ?? ""}`}>
       <label
         role="button"
         tabIndex={0}

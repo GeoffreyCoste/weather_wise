@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
+:root {
+  --sb-track-color-light: #ffffff;
+  --sb-thumb-color-light: #1d4ed8;
+  --sb-track-color-dark: #172554;
+  --sb-thumb-color-dark: #38bdf8;
+  --sb-size: 10px;
+}
 
 body {
   max-width: 1920px;
@@ -10,11 +17,11 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  /* color: rgb(var(--color));
-  background-color: rgb(var(--background)); */
   overflow-x: hidden;
   font-variant-numeric: lining-nums; /* Numbers all lying on the same baseline (i.e. which is not the case by default with 'Raleway') */
 }
+
+
 
 #button-facebook:hover svg,
 #button-instagram:hover svg,
@@ -71,5 +78,35 @@ body {
     width: 2.5rem;
     height: 2.5rem;
     transform: translate3d(-0.35rem, -0.35rem, 0);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  /**** Scrollbars ****/
+  ::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+  }
+  
+  :root[data-theme="light"] ::-webkit-scrollbar-track {
+    background: var(--sb-track-color-light);
+    border-radius: 10px;
+    border: 5px solid transparent;
+  }
+  
+  :root[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color-light);
+    border-radius: 10px;
+  }
+  
+  :root[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--sb-track-color-dark);
+    border-radius: 10px;
+  }
+  
+  :root[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color-dark);
+    border-radius: 10px;
   }
 }

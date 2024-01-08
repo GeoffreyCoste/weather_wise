@@ -1,8 +1,8 @@
 'use client'
 
-import { useTranslations } from "next-intl";
-import { useTheme } from "@/hooks/useTheme";
-import { useModal } from "@/hooks/useModal";
+import { useTranslations } from "next-intl"
+import { useTheme } from "@/hooks/useTheme"
+import { useModal } from "@/hooks/useModal"
 
 export const ButtonOpenModal = () => {
 
@@ -14,7 +14,7 @@ export const ButtonOpenModal = () => {
   return (
     <button
         id="button-open-modal" 
-        className="w-full max-w-xs sm:w-60 lg:w-72 sm:mr-24 md:mr-52 lg:mr-6 lg:max-w-7xl flex justify-between items-center bg-white hover:bg-gray-200 border-white dark:bg-blue-950 dark:hover:bg-blue-900 dark:border-blue-900 font-semibold mx-auto py-2 px-4 border border-2 rounded-full shadow z-50" // "z-30" set by SideMenu component when menu is opened
+        className="w-full sm:w-60 lg:w-72 sm:mr-24 md:mr-52 lg:mr-6 lg:max-w-7xl flex justify-between items-center bg-white hover:bg-gray-200 border-white dark:bg-blue-950 dark:hover:bg-blue-900 dark:border-blue-900 font-semibold mx-auto sm:mr-auto py-2 px-4 border border-2 rounded-full shadow z-20"
         type="button" 
         tabIndex={0} 
         role="button" 

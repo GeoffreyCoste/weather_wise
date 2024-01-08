@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import {useContext} from 'react';
-import {TemperatureContext} from '@/context/temperatureContext';
-import {TemperatureContextInterface} from '@/context/temperatureContext';
+import {useContext} from 'react'
+import {TemperatureContext} from '@/context/temperatureContext'
+import {TemperatureContextInterface} from '@/context/temperatureContext'
 
 export const useTemperature = () => {
   const {state, dispatch} = useContext(TemperatureContext) as TemperatureContextInterface;

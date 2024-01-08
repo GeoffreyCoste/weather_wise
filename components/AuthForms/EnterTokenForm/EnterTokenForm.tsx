@@ -42,7 +42,7 @@ export const EnterTokenForm = () => {
     const EnterTokenFormDataSchema = z.object({
         token: z
           .string()
-          .nonempty({message: t('form.input_token_errors.empty')})
+          .min(1, {message: t('form.input_token_errors.empty')})
           .regex(/^[0-9]{6}$/, {message: t('form.input_token_errors.format')})
       });
     

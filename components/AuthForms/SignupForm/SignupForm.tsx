@@ -8,8 +8,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useTranslations } from 'next-intl'
 import { useTheme } from '@/hooks/useTheme'
-import { EyeIcon } from '../EyeIcon/EyeIcon'
-import { EyeSlashIcon } from '../EyeSlashIcon/EyeSlashIcon'
+import { EyeIcon } from '../../SvgIcons/EyeIcon/EyeIcon'
+import { EyeSlashIcon } from '../../SvgIcons/EyeSlashIcon/EyeSlashIcon'
 import Link from 'next/link'
 import SelectInput from './SelectInput/SelectInput'
 
@@ -35,26 +35,26 @@ export const SignupForm = () => {
   const SignupFormDataSchema = z.object({
     firstName: z
       .string()
-      .nonempty({message: t('form.input_firstname_errors.empty')})
+      .min(1, {message: t('form.input_firstname_errors.empty')})
       .min(2, {message:  t('form.input_firstname_errors.min_length')})
       .max(50, {message: t('form.input_firstname_errors.max_length')})
       .refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z]+$/.test(value), {message: t('form.input_firstname_errors.only_alphabet')}),
     lastName: z
       .string()
-      .nonempty({message: t('form.input_lastname_errors.empty')})
+      .min(1, {message: t('form.input_lastname_errors.empty')})
       .min(2, {message: t('form.input_lastname_errors.min_length')})
       .max(50, {message: t('form.input_lastname_errors.max_length')})
       .refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z]+$/.test(value), {message: t('form.input_lastname_errors.only_alphabet')}),
     location: z
       .string()
-      .nonempty({message: t('form.input_location_errors.empty')}),
+      .min(1, {message: t('form.input_location_errors.empty')}),
     email: z
       .string()
       .email({message: t('form.input_email_errors.format')})
-      .nonempty({message: t('form.input_email_errors.empty')}),
+      .min(1, {message: t('form.input_email_errors.empty')}),
     password: z
       .string()
-      .nonempty({message: t('form.input_password_errors.empty')})
+      .min(1, {message: t('form.input_password_errors.empty')})
       .refine((value) => /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,}$/.test(value), {
         message: 'form.input_password_errors.combos.items'
       })
@@ -210,7 +210,7 @@ export const SignupForm = () => {
                 </div>
             </div>
             <div>
-              <label htmlFor="signup-input-lastname" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_location_label')}</label>
+              <label htmlFor="signup-input-location" className="ml-3 text-sm text-gray-800 font-semibold dark:text-white">{t('form.input_location_label')}</label>
               <Controller 
                 name="location"
                 control={control}
@@ -268,7 +268,6 @@ export const SignupForm = () => {
                 type={passwordShown ? "text" : "password"}
                 id="signup-input-password"
                 {...register('password')}
-                /* pattern="/(?=.*[_!@#$%§^&*-])(?=.*\d)(?!.*[.\n])(?=.*[a-z])(?=.*[A-Z])^.{8,}$/" */
               />
               <div className={`absolute top-[34px] right-4 w-6 h-6 cursor-pointer before:w-8 before:h-8 before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 ${ themeState.theme === 'light' ? 'hover:before:bg-yellow-400' : 'hover:before:bg-white'}`} onClick={togglePasswordVisiblity}>
                 {passwordShown ? <EyeSlashIcon /> : <EyeIcon />}

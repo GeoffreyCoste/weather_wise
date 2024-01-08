@@ -44,13 +44,13 @@ export const NewPasswordForm = () => {
     const NewPasswordFormDataSchema = z.object({
         newPassword: z
           .string()
-          .nonempty({message: t('form.input_new_password_errors.empty')})
+          .min(1, {message: t('form.input_new_password_errors.empty')})
           .refine((value) => /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,}$/.test(value), {
             message: 'form.input_new_password_errors.combos.items'
           }),
         newPasswordConfirm: z
           .string()
-          .nonempty({message: t('form.input_new_password_confirm_errors.empty')})
+          .min(1, {message: t('form.input_new_password_confirm_errors.empty')})
       })
       .refine((data) => data.newPassword === data.newPasswordConfirm, {
         message: t('form.input_new_password_confirm_errors.noMatch'),

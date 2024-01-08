@@ -8,8 +8,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useTranslations } from 'next-intl'
 import { useTheme } from '@/hooks/useTheme'
-import { EyeIcon } from '../EyeIcon/EyeIcon'
-import { EyeSlashIcon } from '../EyeSlashIcon/EyeSlashIcon'
+import { EyeIcon } from '../../SvgIcons/EyeIcon/EyeIcon'
+import { EyeSlashIcon } from '../../SvgIcons/EyeSlashIcon/EyeSlashIcon'
 import Link from 'next/link'
 
 export const LoginForm = () => {
@@ -22,7 +22,7 @@ export const LoginForm = () => {
   // Get reset password success message
   const message = searchParams.get('message');
 
-  const { data, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   const t = useTranslations('LoginPage');
@@ -37,10 +37,10 @@ export const LoginForm = () => {
     email: z
       .string()
       .email({message: t('form.input_email_errors.format')})
-      .nonempty({message: t('form.input_email_errors.empty')}),
+      .min(1, {message: t('form.input_email_errors.empty')}),
     password: z
       .string()
-      .nonempty({message: t('form.input_password_errors.empty')})
+      .min(1, {message: t('form.input_password_errors.empty')})
   });
 
   const { register, handleSubmit, watch, formState: { errors }} = useForm<Inputs>({
@@ -61,6 +61,7 @@ export const LoginForm = () => {
               })
           });
           if (response.ok) {
+              console.log(response);
               signIn('credentials', {email, password, callbackUrl: `${window.location.origin}/user/dashboard`});
           }
       } catch(error) {
@@ -114,7 +115,7 @@ export const LoginForm = () => {
               </div>
           </div>
           <div className="relative">
-            <div className="absolute -top-5 right-6 text-sm mt-6">
+            <div className="absolute top-[2px] right-0 lg:right-6 text-sm">
               <Link href="/forgot-password" className="relative font-semibold text-blue-700 dark:text-sky-400 hover:underline after:content-['→'] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-5 after:invisible hover:after:visible hover:after:animate-pulse">{t('form.forgot_password_link')}</Link>
             </div>
             <label htmlFor="login-input-password" className="ml-3 text-sm font-semibold text-gray-800 dark:text-white">{t('form.input_password_label')}</label>
@@ -134,7 +135,6 @@ export const LoginForm = () => {
               type={passwordShown ? "text" : "password"}
               id="login-input-password"
               {...register('password')}
-              /* pattern="/(?=.*[_!@#$%§^&*-])(?=.*\d)(?!.*[.\n])(?=.*[a-z])(?=.*[A-Z])^.{8,}$/" */
             />
             <div className={`absolute top-[34px] right-4 w-6 h-6 cursor-pointer before:w-8 before:h-8 before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 ${ themeState.theme === 'light' ? 'hover:before:bg-yellow-400' : 'hover:before:bg-white'}`} onClick={togglePasswordVisiblity}>
               {passwordShown ? <EyeSlashIcon /> : <EyeIcon />}

@@ -1,17 +1,16 @@
-import React from 'react'
 import { ButtonSocial } from '../ButtonSocial/ButtonSocial'
-import { SvgFacebook } from './SvgFacebook/SvgFacebook';
-import { SvgInstagram } from './SvgInstagram/SvgInstagram';
-import { SvgTwitter } from './SvgTwitter/SvgTwitter';
-import { SvgYoutube } from './SvgYoutube/SvgYoutube';
+import { FacebookIcon } from '../SvgIcons/FacebookIcon/FacebookIcon'
+import { InstagramIcon } from '../SvgIcons/InstagramIcon/InstagramIcon'
+import { TwitterIcon } from '../SvgIcons/TwitterIcon/TwitterIcon'
+import { YoutubeIcon } from '../SvgIcons/YoutubeIcon/YoutubeIcon'
 
 export const ListSocialButtons = () => {
 
     const icons = [
-        { label: 'facebook', svg: <SvgFacebook />},
-        { label: 'instagram', svg: <SvgInstagram />},
-        { label: 'twitter', svg: <SvgTwitter />},
-        { label: 'youtube', svg: <SvgYoutube />}
+        { label: 'facebook', svg: <FacebookIcon />},
+        { label: 'instagram', svg: <InstagramIcon />},
+        { label: 'twitter', svg: <TwitterIcon />},
+        { label: 'youtube', svg: <YoutubeIcon />}
     ];
 
   return (

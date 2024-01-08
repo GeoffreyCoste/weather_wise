@@ -27,7 +27,7 @@ const ButtonGroupLanguages = () => {
   return (
     <div 
       id="button-group-languages" 
-      className="relative mt-2 px-1.5 py-1.5 lg:px-2 lg:py-0 inline-flex justify-between w-full rounded-full border-2 border-zinc-50 bg-white dark:border-blue-900 dark:bg-transparent shadow"
+      className="relative mt-2 px-1.5 py-1.5 lg:px-2 lg:py-0 inline-flex justify-between w-full rounded-full border-2 border-zinc-50 bg-white lg:hover:bg-gray-200 dark:border-blue-900 dark:bg-blue-950 lg:dark:hover:bg-blue-900 shadow"
     >
         <span
           id="background-selected-language"

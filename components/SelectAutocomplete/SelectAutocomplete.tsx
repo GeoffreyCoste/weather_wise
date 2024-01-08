@@ -1,10 +1,10 @@
-'use client';
+'use client'
 
-import {useState} from 'react';
-import {useRouter} from 'next/navigation';
-import {useTranslations} from 'next-intl';
-import AsyncSelect from 'react-select/async';
-import {SingleValue} from 'react-select';
+import {useState} from 'react'
+import {useRouter} from 'next/navigation'
+import {useTranslations} from 'next-intl'
+import AsyncSelect from 'react-select/async'
+import {SingleValue} from 'react-select'
 
 type Props = {
   closeModal: () => void;
@@ -37,7 +37,6 @@ const SelectAutocomplete = ({closeModal}: Props) => {
     }
   ];
 
-  // TODO: Review API calls
   const getOptions = async () => {
     try {
       const response = await fetch(

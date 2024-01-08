@@ -17,23 +17,23 @@ export const ContactForm = () => {
   const ContactFormDataSchema = z.object({
     firstName: z
       .string()
-      .nonempty({message: t('form.input_firstname_errors.empty')})
+      .min(1, {message: t('form.input_firstname_errors.empty')})
       .min(2, {message:  t('form.input_firstname_errors.min_length')})
       .max(50, {message: t('form.input_firstname_errors.max_length')})
       .refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z]+$/.test(value), {message: t('form.input_firstname_errors.only_alphabet')}),
     lastName: z
       .string()
-      .nonempty({message: t('form.input_lastname_errors.empty')})
+      .min(1, {message: t('form.input_lastname_errors.empty')})
       .min(2, {message: t('form.input_lastname_errors.min_length')})
       .max(50, {message: t('form.input_lastname_errors.max_length')})
       .refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z]+$/.test(value), {message: t('form.input_lastname_errors.only_alphabet')}),
     email: z
       .string()
       .email({message: t('form.input_email_errors.format')})
-      .nonempty({message: t('form.input_email_errors.empty')}),
+      .min(1, {message: t('form.input_email_errors.empty')}),
     textarea: z
       .string()
-      .nonempty({message: t('form.input_textarea_errors.empty')})
+      .min(1, {message: t('form.input_textarea_errors.empty')})
       .max(500, {message: t('form.input_textarea_errors.max_length')})
   });
 
@@ -192,8 +192,9 @@ export const ContactForm = () => {
             <div className="mt-4">
               <input
                 type="submit"
-                className="w-full font-semibold rounded-full px-4 py-2 bg-blue-700 text-white dark:bg-sky-400 dark:text-[#172554] cursor-pointer"
+                className="w-full font-semibold rounded-full px-4 py-2 bg-blue-700 text-white dark:bg-sky-400 dark:text-[#172554] cursor-pointer disabled:bg-blue-700/25 disabled:dark:bg-sky-400/25 disabled:dark:text-gray-400 disabled:cursor-default"
                 value={t('form.button_submit_message')}
+                disabled={true}
               />
             </div>
         </form>

@@ -1,17 +1,17 @@
-import clsx from 'clsx';
-import {Raleway} from 'next/font/google';
-/* import {notFound} from 'next/navigation'; */
-import {createTranslator, NextIntlClientProvider} from 'next-intl';
-import {ReactNode} from 'react';
-import { Header } from '@/components/Header/Header';
-import {cookies} from 'next/headers';
-import {ThemeProvider} from '@/context/themeContext';
-import {TemperatureProvider} from '@/context/temperatureContext';
-import { ModalProvider } from '@/context/modalContext';
-import { Modal } from '@/components/ModalPortal/Modal/Modal';
-import { SideMenu } from '@/components/SideMenu/SideMenu';
-import { Footer } from '@/components/Footer/Footer';
-import { AuthProvider } from '@/components/AuthProvider/AuthProvider';
+import clsx from 'clsx'
+import {Raleway} from 'next/font/google'
+import {createTranslator, NextIntlClientProvider} from 'next-intl'
+import {ReactNode} from 'react'
+import { Header } from '@/components/Header/Header'
+import {cookies} from 'next/headers'
+import {ThemeProvider} from '@/context/themeContext'
+import {TemperatureProvider} from '@/context/temperatureContext'
+import { WindspeedProvider } from '@/context/windspeedContext'
+import { ModalProvider } from '@/context/modalContext'
+import { Modal } from '@/components/ModalPortal/Modal/Modal'
+import { Footer } from '@/components/Footer/Footer'
+import { AuthProvider } from '@/components/AuthProvider/AuthProvider'
+import { EdgeStoreProvider } from '@/lib/edgestore'
 
 const raleway = Raleway({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -28,7 +28,6 @@ async function getMessages(locale: string) {
     return (await import(`../../messages/${locale}.json`)).default;
   } catch (error) {
     console.log(error);
-    /* notFound(); */
   }
 }
 
@@ -46,9 +45,6 @@ export async function generateMetadata({params: {locale}}: Props) {
   return {
     title: {
       default: t('LocaleLayout.default_title')
-      /* absolute: `${t('LocaleLayout.city_page_title')} - ${t(
-        'LocaleLayout.default_title'
-      )}` */
     }
   };
 }
@@ -64,19 +60,22 @@ export default async function LocaleLayout({
   const temperatureCookie = cookieStore.get('temperature')?.value ?? ''
 
   return (
-    <html lang={locale} /* data-theme={themeCookie} */>
-      <body className={clsx(raleway.className, 'bg-zinc-50 dark:bg-[#0F1A3E]')}>
+    <html lang={locale}>
+      <body className={clsx(raleway.className, 'bg-sky-100 dark:bg-[#0F1A3E]')}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>
             <ModalProvider>
               <TemperatureProvider>
-                <AuthProvider>
-                  <Header themeCookie={themeCookie} temperatureCookie={temperatureCookie} />
-                  {children}
-                  <Footer />
-                  <SideMenu themeCookie={themeCookie} temperatureCookie={temperatureCookie} />
-                  <Modal />
-                </AuthProvider>
+                <WindspeedProvider>
+                  <AuthProvider>
+                    <EdgeStoreProvider>
+                        <Header themeCookie={themeCookie} temperatureCookie={temperatureCookie} />
+                        {children}
+                        <Footer />
+                        <Modal />
+                    </EdgeStoreProvider>
+                  </AuthProvider>
+                </WindspeedProvider>
               </TemperatureProvider>
             </ModalProvider>
           </ThemeProvider>
